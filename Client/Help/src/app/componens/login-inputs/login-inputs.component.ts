@@ -6,7 +6,7 @@ import { Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./login-inputs.component.css']
 })
 export class LoginInputsComponent implements OnInit {
-  @Input() title: string;
+  @Input() title!: string
 
   constructor() { }
 
