@@ -1,18 +1,18 @@
 <main class="flex flex-col justify-around h-screen text-center">
-    <h1>Help</h1>
-    <h3>Welcome</h3>
-    <section>
-         <button type="button">Username</button>
-         <button type="button">Password</button>
-         <p>Forgot your password</p>
-    </section>
-    <h3>Sign In</h3>
-    <section>
-        <p>Or</p>
-        <article>
-            <div>Apple icon</div>
-            <div>Google icon</div>
+    <h1 class="text-6xl font-bold">Help</h1>
+    <h3 class="text-3xl">Welcome</h3>
+    <section class="flex flex-col">
+         <input type="text" placeholder="Username" class="block self-center text-center text-xl placeholder-black w-3/4 bg-gray-50 rounded-full shadow-md m-4 p-2" />
+         <input type="text" placeholder="Password" class="block self-center text-center text-xl placeholder-black w-3/4 bg-gray-50 rounded-full shadow-md m-4 p-2" />
+         <p class="text-sm text-gray-400">Forgot your password?</p>
+    </section>    
+    <section class="h-36 flex flex-col justify-around">
+        <h3 class="text-3xl">Sign In</h3>
+        <p class="text-sm">Or</p>
+        <article class="flex justify-center">
+            <div class="mr-4 bg-black text-white flex items-center justify-center rounded-full h-8 w-8">A</div>
+            <div class="bg-yellow-600 text-white flex items-center justify-center rounded-full h-8 w-8">G</div>
         </article>
     </section>
-    <p>Don't have an account? <a href="">Create</a></p>
+    <p><span class="text-gray-400">Don't have an account?</span> <a href=""> Create</a></p>
 </main>
