@@ -2,8 +2,8 @@
     <h1 class="text-6xl font-bold font-login-logo">Help</h1>
     <h3 class="text-3xl">Welcome</h3>
     <section class="flex flex-col">
-         <input type="text" placeholder="Username" class="block self-center text-center text-xl placeholder-black w-3/4 bg-gray-50 rounded-full shadow-md m-4 p-2" />
-         <input type="text" placeholder="Password" class="block self-center text-center text-xl placeholder-black w-3/4 bg-gray-50 rounded-full shadow-md m-4 p-2" />
+         <app-login-inputs [title]="titleUserName"></app-login-inputs>
+         <app-login-inputs [title]="titleUserPassword"></app-login-inputs>
          <p class="text-sm text-gray-400">Forgot your password?</p>
     </section>    
     <section class="h-36 flex flex-col justify-around">
