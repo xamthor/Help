@@ -19,7 +19,11 @@
     "@angular/platform-browser": "~11.0.4",
     "@angular/platform-browser-dynamic": "~11.0.4",
     "@angular/router": "~11.0.4",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
     "rxjs": "~6.6.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
