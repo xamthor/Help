@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import {faUser} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-login-inputs',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class LoginInputsComponent implements OnInit {
   @Input() title!: string
+  faUser = faUser;
 
   constructor() { }
 
