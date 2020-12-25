@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {faUser, faUnlockAlt} from '@fortawesome/free-solid-svg-icons';
+import {faUser, faUnlockAlt, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login-inputs',
@@ -10,6 +10,7 @@ export class LoginInputsComponent implements OnInit {
   @Input() title!: string;
   faUser = faUser;
   faLock = faUnlockAlt;
+  faEmail = faEnvelope
 
   constructor() { }
 

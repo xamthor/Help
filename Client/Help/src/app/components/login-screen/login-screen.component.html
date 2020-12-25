@@ -1,13 +1,18 @@
 <main class="flex flex-col justify-around h-screen text-center">
     <h1 class="text-6xl font-bold font-login-logo">Help</h1>
-    <h3 class="text-3xl">Welcome</h3>
+    <h3 *ngIf="!register" class="text-3xl">Welcome</h3>
+    <h3 *ngIf="register" class="text-3xl">Create account</h3>
     <section class="flex flex-col items-center">
          <app-login-inputs [title]="titleUserName"></app-login-inputs>
          <app-login-inputs [title]="titleUserPassword"></app-login-inputs>
-         <p class="text-sm text-gray-400">Forgot your password?</p>
+         <article *ngIf="register">
+             <app-login-inputs [title]="titleUserEmail"></app-login-inputs>
+         </article>         
+         <p *ngIf="!register" class="text-sm text-gray-400">Forgot your password?</p>
     </section>    
     <section class="h-36 flex flex-col justify-around">
-        <h3 class="text-3xl">Sign In</h3>
+        <h3 *ngIf="!register" class="text-3xl">Sign In</h3>
+        <h3 *ngIf="register" class="text-3xl">Create</h3>
         <p class="text-sm">Or</p>
         <article class="flex justify-center">
             <div class="mr-4 bg-black flex items-center justify-center rounded-full h-8 w-8">

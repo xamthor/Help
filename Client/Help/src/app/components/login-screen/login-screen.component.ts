@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoginScreenComponent implements OnInit {
   titleUserName: string = "Username";
-  titleUserPassword: string = "Password"
+  titleUserPassword: string = "Password";
+  titleUserEmail: string = "Email";
+  @Input() register!:string;
 
   constructor() { }
 
