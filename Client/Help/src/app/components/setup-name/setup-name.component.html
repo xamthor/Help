@@ -1,0 +1,21 @@
+<main class="flex flex-col justify-around h-screen text-center">
+    <h2 class="text-3xl">Welcome</h2>
+    <h3 *ngIf="stage === 1" class="text-md -m-20" >We just have a few things to setup</h3>
+    <h3 *ngIf="stage === 2" class="text-md -m-20" >Lets get your phone number to easily connect you with others</h3>
+    <h3 *ngIf="stage === 3 " class="text-md -m-20" >Let's make some connections</h3>
+
+    <section *ngIf="stage === 1" class="flex flex-col items-center">
+        <app-login-inputs [title]="titleFirstName"></app-login-inputs>
+        <app-login-inputs [title]="titleLastName"></app-login-inputs>
+    </section> 
+
+    <section *ngIf="stage === 2" class="flex flex-col items-center">
+        <app-login-inputs [title]="titlePhone"></app-login-inputs>
+    </section> 
+
+    <section *ngIf="stage === 3" class="flex flex-col items-center">
+        <app-login-inputs [title]="titleSearch "></app-login-inputs>
+    </section>
+
+    <h2 class="text-3xl">Next</h2>
+</main>

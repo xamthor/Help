@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './components/login-screen/login-screen.component';
 import { LoginInputsComponent } from './components/login-inputs/login-inputs.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SetupNameComponent } from './components/setup-name/setup-name.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginScreenComponent,
-    LoginInputsComponent
+    LoginInputsComponent,
+    SetupNameComponent
   ],
   imports: [
     BrowserModule,
