@@ -16,4 +16,13 @@ export class SetupNameComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToNextSetupStage(){
+    this.stage ++;
+
+    // TEMP: FOR TESTING ONLY
+    if(this.stage === 4){
+      this.stage = 1;
+    }
+  }
+
 }
