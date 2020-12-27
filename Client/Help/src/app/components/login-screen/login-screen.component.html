@@ -1,10 +1,10 @@
-<main class="flex flex-col md:pt-20  items-center">
+<main class="flex flex-col md:pt-20  items-center h-screen">
     <h1 class="text-6xl font-bold font-login-logo">Help Me</h1>
-    <section class="flex flex-row h-screen">
+    <section class="flex flex-row h-full">
         <article class="mt-20 md:ml-4 md:mr-4 lg:mr-20 hidden sm:block md:block lg:block xl:block">
-            <img class="md:h-2/3 " src="../../../assets/hands.png" />
+            <img class="h-2/3 " src="../../../assets/hands.png" />
         </article>
-        <article class="flex flex-col justify-around mt-20 h-screen md:h-2/3 md:pb-4 text-center">
+        <article class="flex flex-col justify-around md:h-2/3  md:mt-20 md:pb-4 text-center">
             <h3 *ngIf="!register" class="text-3xl">Welcome</h3>
             <h3 *ngIf="register" class="text-3xl">Create account</h3>
             <section class="flex flex-col items-center">
