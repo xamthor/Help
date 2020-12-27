@@ -1,30 +1,39 @@
-<main class="flex flex-col justify-around h-screen text-center">
+<main class="flex flex-col  items-center">
     <h1 class="text-6xl font-bold font-login-logo">Help</h1>
-    <h3 *ngIf="!register" class="text-3xl">Welcome</h3>
-    <h3 *ngIf="register" class="text-3xl">Create account</h3>
-    <section class="flex flex-col items-center">
-         <app-login-inputs [title]="titleUserName"></app-login-inputs>
-         <app-login-inputs [title]="titleUserPassword"></app-login-inputs>
-         <article *ngIf="register">
-             <app-login-inputs [title]="titleUserEmail"></app-login-inputs>
-         </article>         
-         <p *ngIf="!register" class="text-sm text-gray-400">Forgot your password?</p>
-    </section>    
-    <section class="h-36 flex flex-col justify-around">
-        <h3 *ngIf="!register" class="text-3xl cursor-pointer">Sign In</h3>
-        <h3 *ngIf="register" class="text-3xl cursor-pointer" [routerLink]="['/setup-screen']" >Create</h3>
-        <p class="text-sm">Or</p>
-        <article class="flex justify-center">
-            <div class="mr-4 bg-black flex items-center justify-center rounded-full h-8 w-8">
-                <img class="h-4 w-4 cursor-pointer" src="../../../assets/apple.png" alt="image of the Apple logo" />
-            </div>
-            <div class="bg-red-600  flex items-center justify-center rounded-full h-8 w-8">
-                <img class="h-4 w-4 cursor-pointer" src="../../../assets/google.png" alt="image of the Apple logo" />
-            </div>
+    <section class="flex flex-row md:h-screen">
+        <article class="mt-20 md:ml-4 hidden sm:block md:block lg:block xl:block">
+            <img class="md:h-2/3 " src="../../../assets/hands.png" />
+        </article>
+        <article class="flex flex-col justify-around md:h-2/3 md:p-10 text-center">
+            <h3 *ngIf="!register" class="text-3xl">Welcome</h3>
+            <h3 *ngIf="register" class="text-3xl">Create account</h3>
+            <section class="flex flex-col items-center">
+                <app-login-inputs [title]="titleUserName"></app-login-inputs>
+                <app-login-inputs [title]="titleUserPassword"></app-login-inputs>
+                <article *ngIf="register">
+                    <app-login-inputs [title]="titleUserEmail"></app-login-inputs>
+                </article>         
+                <p *ngIf="!register" class="text-sm text-gray-400">Forgot your password?</p>
+            </section>    
+            <section class="h-36 flex flex-col justify-around">
+                <h3 *ngIf="!register" class="text-3xl cursor-pointer">Sign In</h3>
+                <h3 *ngIf="register" class="text-3xl cursor-pointer" [routerLink]="['/setup-screen']" >Create</h3>
+                <p class="text-sm">Or</p>
+                <article class="flex justify-center">
+                    <div class="mr-4 bg-black flex items-center justify-center rounded-full h-8 w-8">
+                        <img class="h-4 w-4 cursor-pointer" src="../../../assets/apple.png" alt="image of the Apple logo" />
+                    </div>
+                    <div class="bg-red-600  flex items-center justify-center rounded-full h-8 w-8">
+                        <img class="h-4 w-4 cursor-pointer" src="../../../assets/google.png" alt="image of the Apple logo" />
+                    </div>
+                </article>
+            </section>
+            <p *ngIf="!register">
+                <span class="text-gray-400">Don't have an account?</span> 
+                <a class="cursor-pointer" (click)="gotoCreateAccountViewScreen()"> Create</a>
+            </p>
         </article>
     </section>
-    <p *ngIf="!register">
-        <span class="text-gray-400">Don't have an account?</span> 
-        <a class="cursor-pointer" (click)="gotoCreateAccountViewScreen()"> Create</a>
-    </p>
+    
+
 </main>
