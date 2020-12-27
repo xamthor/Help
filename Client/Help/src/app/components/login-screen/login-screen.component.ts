@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login-screen',
@@ -9,11 +9,16 @@ export class LoginScreenComponent implements OnInit {
   titleUserName: string = "Username";
   titleUserPassword: string = "Password";
   titleUserEmail: string = "Email";
-  @Input() register!:string;
+  register: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  gotoCreateAccountViewScreen(){
+    this.register = true;
+    console.log("Button pressed")
   }
 
 }
