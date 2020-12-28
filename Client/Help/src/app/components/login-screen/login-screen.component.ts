@@ -11,6 +11,16 @@ export class LoginScreenComponent implements OnInit {
   titleUserEmail: string = "Email";
   register: boolean = false;
 
+  username: string = "";
+  password: string = "";
+  email: string = "";
+
+  person = {
+    username: this.username,
+    password: this.password,
+    email: this.email,
+  }
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +28,19 @@ export class LoginScreenComponent implements OnInit {
 
   gotoCreateAccountViewScreen(){
     this.register = true;
-    console.log("Button pressed")
+  }
+
+  getUserName($event:any){
+    this.person.username = $event;
+  }
+
+  getPassword($event:any){
+    this.person.password = $event;
+    console.log(this.person);
+  }
+
+  getEmail($event:any){
+    this.person.email = $event;
   }
 
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {faUser, faUnlockAlt, faEnvelope, faPhoneAlt, faSearch} from '@fortawesome/free-solid-svg-icons';
+//import { EventEmitter } from 'events';
+
 
 @Component({
   selector: 'app-login-inputs',
@@ -13,6 +15,8 @@ export class LoginInputsComponent implements OnInit {
   faEmail = faEnvelope
   faPhone = faPhoneAlt; 
   faSearch = faSearch;
+
+  @Output() getUserInput = new EventEmitter();
 
   constructor() { }
 
