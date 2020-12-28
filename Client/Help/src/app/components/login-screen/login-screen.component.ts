@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserAccountService} from '../../services/user-account.service';
 
 @Component({
   selector: 'app-login-screen',
@@ -11,14 +12,29 @@ export class LoginScreenComponent implements OnInit {
   titleUserEmail: string = "Email";
   register: boolean = false;
 
-  constructor() { }
+  constructor(private userAccountService: UserAccountService) { }
 
   ngOnInit(): void {
   }
 
   gotoCreateAccountViewScreen(){
     this.register = true;
-    console.log("Button pressed")
+  }
+
+  getUserName($event:any){
+    this.userAccountService.updateUserName($event);
+  }
+
+  getPassword($event:any){
+    this.userAccountService.updatePassword($event);
+  }
+
+  getEmail($event:any){
+    this.userAccountService.updateEmail($event);
+  }
+
+  updateUserAccount(){
+    this.userAccountService.displayUser();
   }
 
 }
