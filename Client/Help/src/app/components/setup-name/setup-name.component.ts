@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserAccountService} from '../../services/user-account.service';
 
 @Component({
   selector: 'app-setup-name',
@@ -11,9 +12,25 @@ export class SetupNameComponent implements OnInit {
   titleLastName: string = "Last Name";
   titleSearch: string = "Search";
   stage: number = 1;
-  constructor() { }
+
+  person = {
+    username: "",
+  };
+  constructor(private userAccountService: UserAccountService) { }
 
   ngOnInit(): void {
+  }
+
+  getFirstName($event:any){
+    this.userAccountService.updateFirstName($event);
+  }  
+
+  getLastName($event:any){
+    this.userAccountService.updateLastName($event);
+  }
+
+  getPhone($event:any){
+    this.userAccountService.updatephone($event);
   }
 
   goToNextSetupStage(){
@@ -23,6 +40,10 @@ export class SetupNameComponent implements OnInit {
     if(this.stage === 4){
       this.stage = 1;
     }
+
+    this.userAccountService.displayUser();
   }
+
+
 
 }

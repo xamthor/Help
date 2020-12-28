@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserAccountService} from '../../services/user-account.service';
 
 @Component({
   selector: 'app-login-screen',
@@ -11,17 +12,7 @@ export class LoginScreenComponent implements OnInit {
   titleUserEmail: string = "Email";
   register: boolean = false;
 
-  username: string = "";
-  password: string = "";
-  email: string = "";
-
-  person = {
-    username: this.username,
-    password: this.password,
-    email: this.email,
-  }
-  
-  constructor() { }
+  constructor(private userAccountService: UserAccountService) { }
 
   ngOnInit(): void {
   }
@@ -31,16 +22,19 @@ export class LoginScreenComponent implements OnInit {
   }
 
   getUserName($event:any){
-    this.person.username = $event;
+    this.userAccountService.updateUserName($event);
   }
 
   getPassword($event:any){
-    this.person.password = $event;
-    console.log(this.person);
+    this.userAccountService.updatePassword($event);
   }
 
   getEmail($event:any){
-    this.person.email = $event;
+    this.userAccountService.updateEmail($event);
+  }
+
+  updateUserAccount(){
+    this.userAccountService.displayUser();
   }
 
 }
