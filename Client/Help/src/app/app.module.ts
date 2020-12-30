@@ -8,6 +8,7 @@ import { LoginInputsComponent } from './components/login-inputs/login-inputs.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SetupNameComponent } from './components/setup-name/setup-name.component';
 import { FeedContentComponent } from './components/feed-content/feed-content.component';
+import { ContentHeaderComponent } from './components/content-header/content-header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FeedContentComponent } from './components/feed-content/feed-content.com
     LoginScreenComponent,
     LoginInputsComponent,
     SetupNameComponent,
-    FeedContentComponent
+    FeedContentComponent,
+    ContentHeaderComponent
   ],
   imports: [
     BrowserModule,
