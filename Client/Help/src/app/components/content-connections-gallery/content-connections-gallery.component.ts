@@ -14,14 +14,14 @@ export class ContentConnectionsGalleryComponent implements OnInit {
     {name: "Katie Drake", lastMessageTime:"32"},
     {name: "Joe McCarty", lastMessageTime:"40"},
     {name: "Charlie Patterson", lastMessageTime:"48"},
-    {name: "James Bond"},
-    {name: "Daisy Watson"},
-    {name: "Tommy Drake"},
-    {name: "Bacari White"},
-    {name: "Maranida Watson"},
-    {name: "Nate Stokes"},
-    {name: "Sean Wilson"},
-    {name: "Paul Malon"},
+    {name: "James Bond", lastMessageTime:"48"},
+    {name: "Daisy Watson", lastMessageTime:"49"},
+    {name: "Tommy Drake", lastMessageTime:"48"},
+    {name: "Bacari White", lastMessageTime:"48"},
+    {name: "Maranida Watson", lastMessageTime:"48"},
+    {name: "Nate Stokes", lastMessageTime:"48"},
+    {name: "Sean Wilson", lastMessageTime:"48"},
+    {name: "Paul Malon", lastMessageTime:"48"},
   ];
 
   constructor() { }
