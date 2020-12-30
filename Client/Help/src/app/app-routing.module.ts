@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginScreenComponent} from './components/login-screen/login-screen.component';
 import {SetupNameComponent} from './components/setup-name/setup-name.component';
 import {FeedContentComponent} from './components/feed-content/feed-content.component';
+import {MessagesContentComponent} from './components/messages-content/messages-content.component';
 
 const routes: Routes = [
   { path: 'login-screen', component: LoginScreenComponent },
   { path: 'setup-screen', component: SetupNameComponent },
   { path: 'feed-content', component: FeedContentComponent},
-  { path: '',   redirectTo: '/feed-content', pathMatch: 'full' }
+  { path: 'message-content', component: MessagesContentComponent},
+  { path: '',   redirectTo: '/login-screen', pathMatch: 'full' }
 ];
 
 @NgModule({

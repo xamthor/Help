@@ -13,6 +13,9 @@ import { ContentSosButtonComponent } from './components/content-sos-button/conte
 import { ContentTopFiveComponent } from './components/content-top-five/content-top-five.component';
 import { ContentNavigationComponent } from './components/content-navigation/content-navigation.component';
 import { ContentEmotionGalleryComponent } from './components/content-emotion-gallery/content-emotion-gallery.component';
+import { MessagesContentComponent } from './components/messages-content/messages-content.component';
+import { ContentTopViewComponent } from './components/content-top-view/content-top-view.component';
+import { ContentMessagesGalleryComponent } from './components/content-messages-gallery/content-messages-gallery.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ContentEmotionGalleryComponent } from './components/content-emotion-gal
     ContentSosButtonComponent,
     ContentTopFiveComponent,
     ContentNavigationComponent,
-    ContentEmotionGalleryComponent
+    ContentEmotionGalleryComponent,
+    MessagesContentComponent,
+    ContentTopViewComponent,
+    ContentMessagesGalleryComponent
   ],
   imports: [
     BrowserModule,
