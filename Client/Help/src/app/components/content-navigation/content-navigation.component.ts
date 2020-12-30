@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-navigation',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-navigation.component.css']
 })
 export class ContentNavigationComponent implements OnInit {
+  @Input() nav!:string;
 
   constructor() { }
 

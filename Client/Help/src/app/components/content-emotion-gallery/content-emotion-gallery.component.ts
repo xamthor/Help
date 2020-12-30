@@ -13,7 +13,6 @@ export class ContentEmotionGalleryComponent implements OnInit {
     {name: "Daisy Watson"},
     {name: "Tommy Drake"},
   ];
-  colorsArray:string[] = ["blue", "yellow", "gray"];
 
   constructor() { }
 

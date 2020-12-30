@@ -1,6 +1,6 @@
 <main class="flex w-screen justify-around">
-    <section class="border-black border-b-2 text-sm">Feed</section>
-    <section class="text-gray-300 text-sm">Messages</section>
-    <section class="text-gray-300 text-sm">Connections</section>
-    <section class="text-gray-300 text-sm">Support</section>
+    <section [ngClass]="{'border-black border-b-2 pb-1': nav ==='feed','text-gray-300': nav !=='feed'}" class="text-sm">Latest</section>
+    <section [ngClass]="{'border-black border-b-2 pb-1': nav ==='messages','text-gray-300': nav !=='messages'}" class="text-sm">Messages</section>
+    <section [ngClass]="{'border-black border-b-2 pb-1': nav ==='connections','text-gray-300': nav !=='connections'}" class="text-sm">Connections</section>
+    <section [ngClass]="{'border-black border-b-2 pb-1': nav ==='support','text-gray-300': nav !=='support'}" class="text-sm">Support</section>
 </main>

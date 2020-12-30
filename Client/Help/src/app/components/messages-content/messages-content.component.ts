@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages-content.component.css']
 })
 export class MessagesContentComponent implements OnInit {
-
+  highlightNavLink:string = "messages";
   constructor() { }
 
   ngOnInit(): void {

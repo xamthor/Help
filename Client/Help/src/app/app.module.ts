@@ -16,6 +16,8 @@ import { ContentEmotionGalleryComponent } from './components/content-emotion-gal
 import { MessagesContentComponent } from './components/messages-content/messages-content.component';
 import { ContentTopViewComponent } from './components/content-top-view/content-top-view.component';
 import { ContentMessagesGalleryComponent } from './components/content-messages-gallery/content-messages-gallery.component';
+import { ConnectionsContentComponent } from './components/connections-content/connections-content.component';
+import { ContentConnectionsGalleryComponent } from './components/content-connections-gallery/content-connections-gallery.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ContentMessagesGalleryComponent } from './components/content-messages-g
     ContentEmotionGalleryComponent,
     MessagesContentComponent,
     ContentTopViewComponent,
-    ContentMessagesGalleryComponent
+    ContentMessagesGalleryComponent,
+    ConnectionsContentComponent,
+    ContentConnectionsGalleryComponent
   ],
   imports: [
     BrowserModule,
