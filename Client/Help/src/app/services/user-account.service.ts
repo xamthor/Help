@@ -46,6 +46,10 @@ user = {
     return this.user.userName;
   }
 
+  getConnections(){
+    return this.user.connections;
+  }
+
   getTopFive(){
     return this.user.topFiveProfiles;
   }
