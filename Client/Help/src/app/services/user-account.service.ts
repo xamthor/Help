@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserAccountService {
 
 user = {
-  userName: "",
+  userName: "jsmiley",
   password: "",
   email: "",
   firstName: "",
@@ -37,6 +37,14 @@ user = {
 };
 
   constructor() { }
+
+  getUser(){
+    return this.user;
+  }
+
+  getUserName(){
+    return this.user.userName;
+  }
 
   updateUserName(name:string){
     this.user.userName = name;
