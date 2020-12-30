@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import {UserAccountService} from '../../services/user-account.service';
 
 @Component({
   selector: 'app-content-emotion-gallery',
@@ -8,13 +9,9 @@ import {faUserCircle } from '@fortawesome/free-solid-svg-icons';
 })
 export class ContentEmotionGalleryComponent implements OnInit {
   profilePic = faUserCircle;
-  arrayOfProfiles = [
-    {name: "James Bond"},
-    {name: "Daisy Watson"},
-    {name: "Tommy Drake"},
-  ];
+  arrayOfProfiles = this.userAccountService.getConnections();
 
-  constructor() { }
+  constructor(private userAccountService: UserAccountService) { }
 
   ngOnInit(): void {
   }

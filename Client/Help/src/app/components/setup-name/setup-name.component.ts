@@ -40,8 +40,6 @@ export class SetupNameComponent implements OnInit {
     if(this.stage === 4){
       this.stage = 1;
     }
-
-    this.userAccountService.displayUser();
   }
 
 
