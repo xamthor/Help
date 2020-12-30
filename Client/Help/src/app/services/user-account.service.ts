@@ -46,6 +46,10 @@ user = {
     return this.user.userName;
   }
 
+  getTopFive(){
+    return this.user.topFiveProfiles;
+  }
+
   updateUserName(name:string){
     this.user.userName = name;
   }
