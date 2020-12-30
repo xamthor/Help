@@ -11,6 +11,7 @@ import { FeedContentComponent } from './components/feed-content/feed-content.com
 import { ContentHeaderComponent } from './components/content-header/content-header.component';
 import { ContentSosButtonComponent } from './components/content-sos-button/content-sos-button.component';
 import { ContentTopFiveComponent } from './components/content-top-five/content-top-five.component';
+import { ContentNavigationComponent } from './components/content-navigation/content-navigation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContentTopFiveComponent } from './components/content-top-five/content-t
     FeedContentComponent,
     ContentHeaderComponent,
     ContentSosButtonComponent,
-    ContentTopFiveComponent
+    ContentTopFiveComponent,
+    ContentNavigationComponent
   ],
   imports: [
     BrowserModule,
