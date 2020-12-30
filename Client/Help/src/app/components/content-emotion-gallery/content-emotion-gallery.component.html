@@ -1,0 +1,13 @@
+<main class="flex flex-col justify-around items-center">
+    <section *ngFor="let profile of arrayOfProfiles" class="flex flex-col justify-around bg-blue-300 w-80 h-44 rounded-lg text-center">
+        <fa-icon [icon]="profilePic" class="text-5xl"></fa-icon>
+        <p>{{profile.name}}</p>
+        <p>Relationship: Classified</p>
+        <p>Feeling: Inpsire to code</p>
+        <article >
+            <button type="button" class="bg-red-600 text-xs text-white rounded-2xl w-16 mr-4" >SOS</button>
+            <button type="button" class="bg-white text-xs text-gray-500 rounded-2xl w-16" >Call</button>
+            <button type="button" class="bg-white text-xs text-gray-500 rounded-2xl w-16 ml-4" >Message</button>
+        </article>
+    </section>
+</main>

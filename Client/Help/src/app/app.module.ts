@@ -12,6 +12,7 @@ import { ContentHeaderComponent } from './components/content-header/content-head
 import { ContentSosButtonComponent } from './components/content-sos-button/content-sos-button.component';
 import { ContentTopFiveComponent } from './components/content-top-five/content-top-five.component';
 import { ContentNavigationComponent } from './components/content-navigation/content-navigation.component';
+import { ContentEmotionGalleryComponent } from './components/content-emotion-gallery/content-emotion-gallery.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContentNavigationComponent } from './components/content-navigation/cont
     ContentHeaderComponent,
     ContentSosButtonComponent,
     ContentTopFiveComponent,
-    ContentNavigationComponent
+    ContentNavigationComponent,
+    ContentEmotionGalleryComponent
   ],
   imports: [
     BrowserModule,
