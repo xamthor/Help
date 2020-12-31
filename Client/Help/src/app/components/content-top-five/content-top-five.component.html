@@ -1,0 +1,6 @@
+<main class="flex w-screen justify-around mb-8">
+    <section class="text-center" *ngFor="let profile of arrayOfProfiles" >
+        <fa-icon [icon]="profilePic" class="text-3xl"></fa-icon>
+        <p class="text-center mt-4 text-xs">{{profile.firstName}}</p>
+    </section>
+</main>

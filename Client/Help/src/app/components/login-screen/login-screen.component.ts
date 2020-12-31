@@ -33,8 +33,4 @@ export class LoginScreenComponent implements OnInit {
     this.userAccountService.updateEmail($event);
   }
 
-  updateUserAccount(){
-    this.userAccountService.displayUser();
-  }
-
 }

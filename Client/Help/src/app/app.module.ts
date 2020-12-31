@@ -7,13 +7,35 @@ import { LoginScreenComponent } from './components/login-screen/login-screen.com
 import { LoginInputsComponent } from './components/login-inputs/login-inputs.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SetupNameComponent } from './components/setup-name/setup-name.component';
+import { FeedContentComponent } from './components/feed-content/feed-content.component';
+import { ContentHeaderComponent } from './components/content-header/content-header.component';
+import { ContentSosButtonComponent } from './components/content-sos-button/content-sos-button.component';
+import { ContentTopFiveComponent } from './components/content-top-five/content-top-five.component';
+import { ContentNavigationComponent } from './components/content-navigation/content-navigation.component';
+import { ContentEmotionGalleryComponent } from './components/content-emotion-gallery/content-emotion-gallery.component';
+import { MessagesContentComponent } from './components/messages-content/messages-content.component';
+import { ContentTopViewComponent } from './components/content-top-view/content-top-view.component';
+import { ContentMessagesGalleryComponent } from './components/content-messages-gallery/content-messages-gallery.component';
+import { ConnectionsContentComponent } from './components/connections-content/connections-content.component';
+import { ContentConnectionsGalleryComponent } from './components/content-connections-gallery/content-connections-gallery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginScreenComponent,
     LoginInputsComponent,
-    SetupNameComponent
+    SetupNameComponent,
+    FeedContentComponent,
+    ContentHeaderComponent,
+    ContentSosButtonComponent,
+    ContentTopFiveComponent,
+    ContentNavigationComponent,
+    ContentEmotionGalleryComponent,
+    MessagesContentComponent,
+    ContentTopViewComponent,
+    ContentMessagesGalleryComponent,
+    ConnectionsContentComponent,
+    ContentConnectionsGalleryComponent
   ],
   imports: [
     BrowserModule,
