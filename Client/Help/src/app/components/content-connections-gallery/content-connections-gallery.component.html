@@ -1,4 +1,4 @@
-<main class="grid grid-cols-2 place-items-center mt-4">
+<main class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 place-items-center mt-4">
     <section 
             *ngFor="let profile of arrayOfProfiles; index as i" 
             [ngClass]="{'bg-blue-300': i%3===0, 'bg-green-300': i%2=== 0, 'bg-yellow-300': i%2 === 1 }"  
