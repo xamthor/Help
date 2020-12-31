@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,23 +21,41 @@ user = {
     {firstName: "Jake"},
   ],
   connections: [
-    {name: "Jen Turner", lastMessageTimeStamp:"23"},
-    {name: "Jake Stafford", lastMessageTimeStamp:"26"},
-    {name: "Katie Drake", lastMessageTimeStamp:"32"},
-    {name: "Joe McCarty", lastMessageTimeStamp:"40"},
-    {name: "Charlie Patterson", lastMessageTimeStamp:"48"},
-    {name: "James Bond", lastMessageTimeStamp:"48"},
-    {name: "Daisy Watson", lastMessageTimeStamp:"49"},
-    {name: "Tommy Drake", lastMessageTimeStamp:"48"},
-    {name: "Bacari White", lastMessageTimeStamp:"48"},
-    {name: "Maranida Watson", lastMessageTimeStamp:"48"},
-    {name: "Nate Stokes", lastMessageTimeStamp:"48"},
-    {name: "Sean Wilson", lastMessageTimeStamp:"48"},
-    {name: "Paul Malon", lastMessageTimeStamp:"48"},
+    {name: "Jen Turner", lastMessageTimeStamp:23},
+    {name: "Jake Stafford", lastMessageTimeStamp:26},
+    {name: "Katie Drake", lastMessageTimeStamp:32},
+    {name: "Joe McCarty", lastMessageTimeStamp:40},
+    {name: "Charlie Patterson", lastMessageTimeStamp:48},
+    {name: "James Bond", lastMessageTimeStamp:48},
+    {name: "Daisy Watson", lastMessageTimeStamp:49},
+    {name: "Tommy Drake", lastMessageTimeStamp:0},
+    {name: "Bacari White", lastMessageTimeStamp:0},
+    {name: "Maranida Watson", lastMessageTimeStamp:0},
+    {name: "Nate Stokes", lastMessageTimeStamp:0},
+    {name: "Sean Wilson", lastMessageTimeStamp:0},
+    {name: "Paul Malon", lastMessageTimeStamp:0},
   ]
 };
 
   constructor() { }
+
+  // Return an array of connections that have active messages
+  getUserMessages(): any{
+    type messageConnection = {
+      name: string;
+      lastMessageTimeStamp: number;
+    };
+
+    let connectionsWithMessages: messageConnection[] = [];
+    
+    this.user.connections.forEach(connection => {
+      if(connection.lastMessageTimeStamp > 0){
+        connectionsWithMessages.push(connection);
+      }
+    })
+    console.log(connectionsWithMessages);
+    return connectionsWithMessages;
+  }
 
   getUser(){
     return this.user;
