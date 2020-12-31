@@ -16,8 +16,8 @@
                 <p *ngIf="!register" class="text-sm text-gray-400">Forgot your password?</p>
             </section>    
             <section class="h-36 flex flex-col justify-around">
-                <h3 *ngIf="!register" class="text-3xl cursor-pointer" [routerLink]="['/feed-content']">Sign In</h3>
-                <h3 *ngIf="register" class="text-3xl cursor-pointer" [routerLink]="['/setup-screen']" >Create</h3>
+                <h3 *ngIf="!register" class="text-3xl cursor-pointer" [routerLink]="['/feed']">Sign In</h3>
+                <h3 *ngIf="register" class="text-3xl cursor-pointer" [routerLink]="['/setup']" >Create</h3>
                 <p class="text-sm">Or</p>
                 <article class="flex justify-center">
                     <div class="mr-4 bg-black flex items-center justify-center rounded-full h-8 w-8">
