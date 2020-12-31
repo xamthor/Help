@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connections-content.component.css']
 })
 export class ConnectionsContentComponent implements OnInit {
-  highlightNavLink:string = "connections";
 
   constructor() { }
 

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed-content.component.css']
 })
 export class FeedContentComponent implements OnInit {
-  highlightNavLink:string = "feed";
 
   constructor() { }
 

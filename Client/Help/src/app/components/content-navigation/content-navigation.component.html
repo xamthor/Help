@@ -1,6 +1,22 @@
 <main class="flex w-screen justify-around">
-    <section [routerLink]="['/feed']" [ngClass]="{'border-black border-b-2 pb-1': nav ==='feed','text-gray-300': nav !=='feed'}" class="text-sm">Feed</section>
-    <section [routerLink]="['/message']" [ngClass]="{'border-black border-b-2 pb-1': nav ==='messages','text-gray-300': nav !=='messages'}" class="text-sm">Messages</section>
-    <section [routerLink]="['/connections']" [ngClass]="{'border-black border-b-2 pb-1': nav ==='connections','text-gray-300': nav !=='connections'}" class="text-sm">Connections</section>
-    <section [ngClass]="{'border-black border-b-2 pb-1': nav ==='support','text-gray-300': nav !=='support'}" class="text-sm">Support</section>
+    <section class="text-gray-300 text-sm">
+        <label [routerLink]="['/feed']" routerLinkActive="border-black border-b-2 pb-1 text-black">
+            Feed
+        </label>
+    </section>
+    <section class="text-gray-300 text-sm">
+        <label [routerLink]="['/message']" routerLinkActive="border-black border-b-2 pb-1 text-black">
+            Messages
+        </label>
+    </section>
+    <section class="text-gray-300 text-sm">
+        <label [routerLink]="['/connections']" routerLinkActive="border-black border-b-2 pb-1 text-black">
+            Connections
+        </label>
+    </section>
+    <section class="text-gray-300 text-sm">
+        <label [routerLink]="['/support']" routerLinkActive="border-black border-b-2 pb-1 text-black">
+            Support
+        </label>
+    </section>
 </main>
