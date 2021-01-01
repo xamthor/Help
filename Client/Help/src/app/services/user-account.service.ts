@@ -1,5 +1,6 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
+import {Connection } from '../interfaces/connections';
 
 @Injectable({
   providedIn: 'root'
@@ -39,21 +40,18 @@ user = {
 
   constructor() { }
 
-  // Return an array of connections that have active messages
+  // Return an array of connections that have active messages in the messages content page
   getUserMessages(): any{
-    type messageConnection = {
-      name: string;
-      lastMessageTimeStamp: number;
-    };
 
-    let connectionsWithMessages: messageConnection[] = [];
+    // Creates an empty array of with inteface Connection type objects
+    let connectionsWithMessages: Connection[] = [];
     
+    // Find and return all connections with an active message time stamp
     this.user.connections.forEach(connection => {
       if(connection.lastMessageTimeStamp > 0){
         connectionsWithMessages.push(connection);
       }
     })
-    console.log(connectionsWithMessages);
     return connectionsWithMessages;
   }
 
