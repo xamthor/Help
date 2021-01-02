@@ -10,7 +10,7 @@ import {UserAccountService} from '../../services/user-account.service';
 export class ContentHeaderComponent implements OnInit {
   profilePic = faUserCircle;
   menu = faBars;
-  firstName : string = this.userAccountService.getUserName();
+  firstName : string = this.userAccountService.getFirstName();
 
   constructor(private userAccountService: UserAccountService) { }
 

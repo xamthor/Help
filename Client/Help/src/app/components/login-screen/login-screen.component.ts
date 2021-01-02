@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserAccountService} from '../../services/user-account.service';
+import {User} from '../../interfaces/user'
 
 @Component({
   selector: 'app-login-screen',
@@ -15,6 +16,18 @@ export class LoginScreenComponent implements OnInit {
   constructor(private userAccountService: UserAccountService) { }
 
   ngOnInit(): void {
+  }
+
+  createAccountAndLogin(user: User) {
+    try {
+      this.userAccountService.create(user);
+    }
+    catch (err) {
+
+    }
+
+    // TODO: Redirect the user to the feed page
+
   }
 
   gotoCreateAccountViewScreen(){
