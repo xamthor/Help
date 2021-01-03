@@ -12,21 +12,39 @@ export class LoginScreenComponent implements OnInit {
   titleUserPassword: string = "Password";
   titleUserEmail: string = "Email";
   register: boolean = false;
+  newUserName: string = "";
+  newUserPassword: string = "";
+  newUserEmail: string = "";
+  //newUser: User = {};
 
   constructor(private userAccountService: UserAccountService) { }
 
   ngOnInit(): void {
   }
 
-  createAccountAndLogin(user: User) {
+  //Creates a new User and add to the User Database
+  createAccountAndLogin() {
     try {
-      this.userAccountService.create(user);
+      let newUser : User = {
+        username: this.newUserName,
+        password: this.newUserPassword,
+        email: this.newUserEmail,
+        firstName: "",
+        lastName: "",
+        phone: "",
+        topFiveProfiles: [],
+        connections: [],
+      };
+
+      this.userAccountService.create(newUser);
+      console.log(newUser);
+
     }
     catch (err) {
 
     }
 
-    // TODO: Redirect the user to the feed page
+    // TODO: Redirect the user to the user account setup screen 
 
   }
 
@@ -34,16 +52,19 @@ export class LoginScreenComponent implements OnInit {
     this.register = true;
   }
 
+  // Capture user input from input field
   getUserName($event:any){
-    this.userAccountService.updateUserName($event);
+    this.newUserName = $event;
   }
 
+  // Capture user input from input field
   getPassword($event:any){
-    this.userAccountService.updatePassword($event);
+    this.newUserPassword = $event;
   }
 
+  // Capture user input from input field
   getEmail($event:any){
-    this.userAccountService.updateEmail($event);
+    this.newUserEmail = $event;
   }
 
 }
