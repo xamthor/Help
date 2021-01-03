@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import {UserAccountService} from '../../services/user-account.service';
 import {User} from '../../interfaces/user'
 
@@ -17,7 +18,7 @@ export class LoginScreenComponent implements OnInit {
   newUserEmail: string = "";
   //newUser: User = {};
 
-  constructor(private userAccountService: UserAccountService) { }
+  constructor(private userAccountService: UserAccountService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -45,7 +46,7 @@ export class LoginScreenComponent implements OnInit {
     }
 
     // TODO: Redirect the user to the user account setup screen 
-
+    this.router.navigate(['/setup']);
   }
 
   gotoCreateAccountViewScreen(){
