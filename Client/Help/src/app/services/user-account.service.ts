@@ -8,6 +8,17 @@ import * as _ from 'lodash';
   providedIn: 'root',
 })
 export class UserAccountService {
+  currentUser: User = {
+    username: "",
+    password: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    topFiveProfiles: [],
+    connections: [],
+  }
+
   users: User[] = [
     {
       username: 'jsmiley',
@@ -44,7 +55,8 @@ export class UserAccountService {
   constructor() {}
 
   create(user: User) {
-    this.users.push(user);
+    this.users.push(user); // Save for later
+    this.currentUser = user;
 
     // TODO: Replace this method implementation with a call to the server to create an account
   }
@@ -82,7 +94,8 @@ export class UserAccountService {
 
   getUserName() {
     // TODO check the current session to detect which user is active
-    return 'jsmiley';
+    //return 'jsmiley';
+    return this.currentUser.username;
   }
 
   getConnections() {
@@ -102,7 +115,7 @@ export class UserAccountService {
     }
     return [];
   }
-
+/*
   updateUserName(name: string) {
     let user = this.findUserByUsername(this.getUserName());
 
@@ -158,4 +171,5 @@ export class UserAccountService {
       user.phone = phone;
     }
   }
+*/
 }

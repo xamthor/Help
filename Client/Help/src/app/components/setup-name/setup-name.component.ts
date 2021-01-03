@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserAccountService} from '../../services/user-account.service';
+import {UserCreationService} from '../../services/user-creation.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-setup-name',
@@ -12,34 +14,67 @@ export class SetupNameComponent implements OnInit {
   titleLastName: string = "Last Name";
   titleSearch: string = "Search";
   stage: number = 1;
+  newUserFname: string = "";
+  newUserLname: string = "";
+  newUserPhone: string = "";
 
   person = {
     username: "",
   };
-  constructor(private userAccountService: UserAccountService) { }
+  constructor(private userCreationService: UserCreationService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  // Capture user input from input field
   getFirstName($event:any){
-    this.userAccountService.updateFirstName($event);
+    this.newUserFname = $event;
+    //this.userCreationService.updateFirstName($event);
   }  
 
+  // Capture user input from input field
   getLastName($event:any){
-    this.userAccountService.updateLastName($event);
+    this.newUserLname = $event;
+    //this.userCreationService.updateLastName($event);
   }
 
+  // Capture user input from input field
   getPhone($event:any){
-    this.userAccountService.updatephone($event);
+    this.newUserPhone = $event;
+    //this.userCreationService.updatephone($event);
   }
 
   goToNextSetupStage(){
+    console.log(this.stage)
+    if(this.stage === 1){
+      this.userCreationService.updateFirstName(this.newUserFname);
+      this.userCreationService.updateLastName(this.newUserLname);
+    }
+
+    if(this.stage === 2){
+      this.userCreationService.updatephone(this.newUserPhone);
+    }
+
+    if(this.stage === 3){
+      this.userCreationService.createUser();
+      // Redirect the user to the feed communication's screen 
+      this.router.navigate(['/feed']);
+    }
+
+    this.stage ++;
+ /*
+    if(this.stage === 4){
+      // Redirect the user to the feed communication's screen 
+      this.router.navigate(['/feed']);
+    }
     this.stage ++;
 
     // TEMP: FOR TESTING ONLY
+   
     if(this.stage === 4){
       this.stage = 1;
     }
+*/
   }
 
 

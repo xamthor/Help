@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserAccountService} from '../../services/user-account.service';
+import {UserCreationService} from '../../services/user-creation.service';
 import {User} from '../../interfaces/user'
 
 @Component({
@@ -16,9 +17,8 @@ export class LoginScreenComponent implements OnInit {
   newUserName: string = "";
   newUserPassword: string = "";
   newUserEmail: string = "";
-  //newUser: User = {};
 
-  constructor(private userAccountService: UserAccountService, private router:Router) { }
+  constructor(private userCreationService: UserCreationService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -37,15 +37,14 @@ export class LoginScreenComponent implements OnInit {
         connections: [],
       };
 
-      this.userAccountService.create(newUser);
-      console.log(newUser);
+      this.userCreationService.setUpUser(newUser);
 
     }
     catch (err) {
 
     }
 
-    // TODO: Redirect the user to the user account setup screen 
+    // Redirect the user to the user account setup screen 
     this.router.navigate(['/setup']);
   }
 
