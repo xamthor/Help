@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserAccountService} from '../../services/user-account.service';
 import {UserCreationService} from '../../services/user-creation.service';
+import {LoginService} from '../../services/login.service';
 import {User} from '../../interfaces/user'
 
 @Component({
@@ -17,10 +18,19 @@ export class LoginScreenComponent implements OnInit {
   newUserName: string = "";
   newUserPassword: string = "";
   newUserEmail: string = "";
+  inValidLogin: boolean = false;
 
-  constructor(private userCreationService: UserCreationService, private router:Router) { }
+  constructor(private userCreationService: UserCreationService, private loginService: LoginService, private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  login(){
+    if(this.loginService.validateUser(this.newUserName, this.newUserPassword)){        
+      this.router.navigate(['/feed']); // Redirect the user to the user account setup screen 
+    }else{
+      console.log("Bad Login");
+    }
   }
 
   //Creates a new User and add to the User Database

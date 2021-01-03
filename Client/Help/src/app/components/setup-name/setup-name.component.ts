@@ -45,7 +45,6 @@ export class SetupNameComponent implements OnInit {
   }
 
   goToNextSetupStage(){
-    console.log(this.stage)
     if(this.stage === 1){
       this.userCreationService.updateFirstName(this.newUserFname);
       this.userCreationService.updateLastName(this.newUserLname);
