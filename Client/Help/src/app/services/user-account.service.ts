@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Connection } from '../interfaces/connections';
 import { User } from '../interfaces/user';
 import * as _ from 'lodash';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,22 @@ export class UserAccountService {
     connections: [],
   }
 
-  constructor() {}
+  constructor(private router:Router) {}
 
+  // Method in the content-header component to log out the user
+  logOut(){
+    this.currentUser = {
+      username: "",
+      password: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      phone: "",
+      topFiveProfiles: [],
+      connections: [],
+    }
+    this.router.navigate(['/login']);
+  }  
   // Method to update the current user from the Login and User Creation services
   create(user: User) {
     this.currentUser = user;

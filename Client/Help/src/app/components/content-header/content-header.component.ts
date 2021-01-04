@@ -14,6 +14,10 @@ export class ContentHeaderComponent implements OnInit {
 
   constructor(private userAccountService: UserAccountService) { }
 
+  logOut(){
+    this.userAccountService.logOut();
+  }
+
   ngOnInit(): void {
   }  
 
