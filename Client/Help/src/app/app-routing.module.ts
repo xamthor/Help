@@ -7,12 +7,12 @@ import {MessagesContentComponent} from './components/messages-content/messages-c
 import {ConnectionsContentComponent} from './components/connections-content/connections-content.component';
 
 const routes: Routes = [
-  { path: 'login-screen', component: LoginScreenComponent },
-  { path: 'setup-screen', component: SetupNameComponent },
-  { path: 'feed-content', component: FeedContentComponent},
-  { path: 'message-content', component: MessagesContentComponent},
-  {path: 'connections-content', component: ConnectionsContentComponent},
-  { path: '',   redirectTo: '/login-screen', pathMatch: 'full' }
+  { path: 'login', component: LoginScreenComponent },
+  { path: 'setup', component: SetupNameComponent },
+  { path: 'feed', component: FeedContentComponent},
+  { path: 'message', component: MessagesContentComponent},
+  {path: 'connections', component: ConnectionsContentComponent},
+  { path: '',   redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

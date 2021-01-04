@@ -9,7 +9,7 @@ import {UserAccountService} from '../../services/user-account.service';
 })
 export class ContentMessagesGalleryComponent implements OnInit {
   profilePic = faUserCircle;
-  arrayOfProfiles = this.userAccountService.getConnections();
+  arrayOfProfiles = this.userAccountService.getUserMessages();
 
   constructor(private userAccountService: UserAccountService) { }
 

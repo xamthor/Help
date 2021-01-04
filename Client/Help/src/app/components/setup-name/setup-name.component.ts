@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserAccountService} from '../../services/user-account.service';
+import {UserCreationService} from '../../services/user-creation.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-setup-name',
@@ -7,41 +9,52 @@ import {UserAccountService} from '../../services/user-account.service';
   styleUrls: ['./setup-name.component.css']
 })
 export class SetupNameComponent implements OnInit {
-  titlePhone: string = "Phone Number";
-  titleFirstName: string = "First Name";
-  titleLastName: string = "Last Name";
-  titleSearch: string = "Search";
-  stage: number = 1;
+  titlePhone: string = "Phone Number"; // Input field title and sets the icon in the input field
+  titleFirstName: string = "First Name"; // Input field title and sets the icon in the input field
+  titleLastName: string = "Last Name"; // Input field title and sets the icon in the input field
+  titleSearch: string = "Search"; // Input field title and sets the icon in the input field
+  stage: number = 1; // Value use to move the user through the different setup account sections
+  newUserFname: string = ""; // variable updated from the input designiated input field and then used to update the temp User
+  newUserLname: string = ""; // variable updated from the input designiated input field and then used to update the temp User
+  newUserPhone: string = ""; // variable updated from the input designiated input field and then used to update the temp User
 
-  person = {
-    username: "",
-  };
-  constructor(private userAccountService: UserAccountService) { }
+  constructor(private userCreationService: UserCreationService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  // Capture user input from input field
   getFirstName($event:any){
-    this.userAccountService.updateFirstName($event);
+    this.newUserFname = $event;
   }  
 
+  // Capture user input from input field
   getLastName($event:any){
-    this.userAccountService.updateLastName($event);
+    this.newUserLname = $event;
   }
 
+  // Capture user input from input field
   getPhone($event:any){
-    this.userAccountService.updatephone($event);
+    this.newUserPhone = $event;
   }
 
+  //Method used to update the temp user until finished. Once finished, a real user is create and redirected into the app
   goToNextSetupStage(){
-    this.stage ++;
-
-    // TEMP: FOR TESTING ONLY
-    if(this.stage === 4){
-      this.stage = 1;
+    if(this.stage === 1){
+      this.userCreationService.updateFirstName(this.newUserFname);
+      this.userCreationService.updateLastName(this.newUserLname);
     }
+
+    if(this.stage === 2){
+      this.userCreationService.updatephone(this.newUserPhone);
+    }
+
+    if(this.stage === 3){
+      this.userCreationService.createUser();
+      // Redirect the user to the feed communication's screen 
+      this.router.navigate(['/feed']);
+    }
+
+    this.stage ++; // Move the user through the three user creation screens
   }
-
-
-
 }

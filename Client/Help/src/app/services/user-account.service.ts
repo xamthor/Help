@@ -1,80 +1,81 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
+import { Connection } from '../interfaces/connections';
+import { User } from '../interfaces/user';
+import * as _ from 'lodash';
+import {Router} from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
+// Service use to load the current user and then update the app communication's pages with content
 export class UserAccountService {
-
-user = {
-  userName: "jsmiley",
-  password: "",
-  email: "",
-  firstName: "",
-  lastName: "",
-  phone: "",
-  topFiveProfiles:[
-    {firstName: "Katie"},
-    {firstName: "Jen"},
-    {firstName: "Joe"},
-    {firstName: "Charlie"},
-    {firstName: "Jake"},
-  ],
-  connections: [
-    {name: "Jen Turner", lastMessageTime:"23"},
-    {name: "Jake Stafford", lastMessageTime:"26"},
-    {name: "Katie Drake", lastMessageTime:"32"},
-    {name: "Joe McCarty", lastMessageTime:"40"},
-    {name: "Charlie Patterson", lastMessageTime:"48"},
-    {name: "James Bond", lastMessageTime:"48"},
-    {name: "Daisy Watson", lastMessageTime:"49"},
-    {name: "Tommy Drake", lastMessageTime:"48"},
-    {name: "Bacari White", lastMessageTime:"48"},
-    {name: "Maranida Watson", lastMessageTime:"48"},
-    {name: "Nate Stokes", lastMessageTime:"48"},
-    {name: "Sean Wilson", lastMessageTime:"48"},
-    {name: "Paul Malon", lastMessageTime:"48"},
-  ]
-};
-
-  constructor() { }
-
-  getUser(){
-    return this.user;
+  currentUser: User = {
+    username: "",
+    password: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    topFiveProfiles: [],
+    connections: [],
   }
 
-  getUserName(){
-    return this.user.userName;
+  constructor(private router:Router) {}
+
+  // Method in the content-header component to log out the user
+  logOut(){
+    this.currentUser = {
+      username: "",
+      password: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      phone: "",
+      topFiveProfiles: [],
+      connections: [],
+    }
+    this.router.navigate(['/login']);
+  }  
+  // Method to update the current user from the Login and User Creation services
+  create(user: User) {
+    this.currentUser = user;
+
+    // TODO: Replace this method implementation with a call to the server to create an account
   }
 
-  getConnections(){
-    return this.user.connections;
+  // Return an array of connections that have active messages in the messages content page
+  getUserMessages(): any {
+    // Creates an empty array of with inteface Connection type objects
+    let connectionsWithMessages: Connection[] = [];
+
+    this.currentUser.connections.forEach((connection) => {
+      if (connection.lastMessageTimeStamp > 0) {
+        connectionsWithMessages.push(connection);
+      }
+    });
+    return connectionsWithMessages;
   }
 
-  getTopFive(){
-    return this.user.topFiveProfiles;
+  // Method used on the content-header component to display the current user's first  name
+  getFirstName() {
+    return this.currentUser.firstName;    
   }
 
-  updateUserName(name:string){
-    this.user.userName = name;
+  // Return's the current user's username
+  getUserName() {
+    // TODO check the current session to detect which user is active
+    return this.currentUser.username;
   }
 
-  updatePassword(password:string){
-    this.user.password= password;
+  // Method used on the content-feed and content-connections pages to display a user's connections
+  getConnections() {
+    return this.currentUser.connections;    
   }
 
-  updateEmail(email:string){
-    this.user.email = email;
-  }
-
-  updateFirstName(fName:string){
-    this.user.firstName = fName;
-  }
-
-  updateLastName(lName:string){
-    this.user.lastName = lName;
-  }
-
-  updatephone(phone:string){
-    this.user.phone = phone;
+  // Method used on in the content-top-five component
+  getTopFive() {
+    return this.currentUser.topFiveProfiles;
   }
 }
