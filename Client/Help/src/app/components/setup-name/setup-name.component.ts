@@ -9,18 +9,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./setup-name.component.css']
 })
 export class SetupNameComponent implements OnInit {
-  titlePhone: string = "Phone Number";
-  titleFirstName: string = "First Name";
-  titleLastName: string = "Last Name";
-  titleSearch: string = "Search";
-  stage: number = 1;
-  newUserFname: string = "";
-  newUserLname: string = "";
-  newUserPhone: string = "";
+  titlePhone: string = "Phone Number"; // Input field title and sets the icon in the input field
+  titleFirstName: string = "First Name"; // Input field title and sets the icon in the input field
+  titleLastName: string = "Last Name"; // Input field title and sets the icon in the input field
+  titleSearch: string = "Search"; // Input field title and sets the icon in the input field
+  stage: number = 1; // Value use to move the user through the different setup account sections
+  newUserFname: string = ""; // variable updated from the input designiated input field and then used to update the temp User
+  newUserLname: string = ""; // variable updated from the input designiated input field and then used to update the temp User
+  newUserPhone: string = ""; // variable updated from the input designiated input field and then used to update the temp User
 
-  person = {
-    username: "",
-  };
   constructor(private userCreationService: UserCreationService, private router:Router) { }
 
   ngOnInit(): void {
@@ -29,21 +26,19 @@ export class SetupNameComponent implements OnInit {
   // Capture user input from input field
   getFirstName($event:any){
     this.newUserFname = $event;
-    //this.userCreationService.updateFirstName($event);
   }  
 
   // Capture user input from input field
   getLastName($event:any){
     this.newUserLname = $event;
-    //this.userCreationService.updateLastName($event);
   }
 
   // Capture user input from input field
   getPhone($event:any){
     this.newUserPhone = $event;
-    //this.userCreationService.updatephone($event);
   }
 
+  //Method used to update the temp user until finished. Once finished, a real user is create and redirected into the app
   goToNextSetupStage(){
     if(this.stage === 1){
       this.userCreationService.updateFirstName(this.newUserFname);
@@ -60,22 +55,6 @@ export class SetupNameComponent implements OnInit {
       this.router.navigate(['/feed']);
     }
 
-    this.stage ++;
- /*
-    if(this.stage === 4){
-      // Redirect the user to the feed communication's screen 
-      this.router.navigate(['/feed']);
-    }
-    this.stage ++;
-
-    // TEMP: FOR TESTING ONLY
-   
-    if(this.stage === 4){
-      this.stage = 1;
-    }
-*/
+    this.stage ++; // Move the user through the three user creation screens
   }
-
-
-
 }

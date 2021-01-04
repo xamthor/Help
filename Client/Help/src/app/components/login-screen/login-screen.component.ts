@@ -58,6 +58,7 @@ export class LoginScreenComponent implements OnInit {
     this.router.navigate(['/setup']);
   }
 
+  // Method to switch screen from Log-in to Create a User screen
   gotoCreateAccountViewScreen(){
     this.register = true;
   }

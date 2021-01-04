@@ -7,6 +7,8 @@ import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
+
+// Service use to load the current user and then update the app communication's pages with content
 export class UserAccountService {
   currentUser: User = {
     username: "",
@@ -21,10 +23,10 @@ export class UserAccountService {
 
   constructor() {}
 
+  // Method to update the current user from the Login and User Creation services
   create(user: User) {
-    //this.users.push(user); // Save for later
     this.currentUser = user;
-console.log(user);
+
     // TODO: Replace this method implementation with a call to the server to create an account
   }
 
@@ -32,18 +34,7 @@ console.log(user);
   getUserMessages(): any {
     // Creates an empty array of with inteface Connection type objects
     let connectionsWithMessages: Connection[] = [];
-/*
-    // Find and return all connections with an active message time stamp
-    let user = this.findUserByUsername(this.getUserName());
 
-    if (user) {
-      user.connections.forEach((connection) => {
-        if (connection.lastMessageTimeStamp > 0) {
-          connectionsWithMessages.push(connection);
-        }
-      });
-    }
-*/
     this.currentUser.connections.forEach((connection) => {
       if (connection.lastMessageTimeStamp > 0) {
         connectionsWithMessages.push(connection);
@@ -52,103 +43,24 @@ console.log(user);
     return connectionsWithMessages;
   }
 
-  findUserByUsername(username: string): User | undefined {
-    return _.find(this.users, (user) => user.username === username);
-  }
-
+  // Method used on the content-header component to display the current user's first  name
   getFirstName() {
-/*    
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      return user.firstName;
-    }
-    return '';
-*/
     return this.currentUser.firstName;    
   }
 
+  // Return's the current user's username
   getUserName() {
     // TODO check the current session to detect which user is active
-    //return 'jsmiley';
     return this.currentUser.username;
   }
 
+  // Method used on the content-feed and content-connections pages to display a user's connections
   getConnections() {
-/*    
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      return user.connections;
-    }
-    return [];
-*/
-  return this.currentUser.connections;    
+    return this.currentUser.connections;    
   }
 
+  // Method used on in the content-top-five component
   getTopFive() {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      return user.topFiveProfiles;
-    }
-    return [];
+    return this.currentUser.topFiveProfiles;
   }
-/*
-  updateUserName(name: string) {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      user.username = name;
-    }
-  }
-
-  updatePassword(password: string) {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      user.password = password;
-    }
-
-    // TODO: call the server to update the user object in the database with the new password
-    // PUT USER
-
-    // GET - return a USER
-    // POST - Create a User
-    // PUT - Replace a user with a new User
-    // PATCH - Update an existing user's by only changing the fields you supply
-  }
-
-  updateEmail(email: string) {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      user.email = email;
-    }
-  }
-
-  updateFirstName(fName: string) {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      user.firstName = fName;
-    }
-  }
-
-  updateLastName(lName: string) {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      user.lastName = lName;
-    }
-  }
-
-  updatephone(phone: string) {
-    let user = this.findUserByUsername(this.getUserName());
-
-    if (user) {
-      user.phone = phone;
-    }
-  }
-*/
 }

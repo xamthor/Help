@@ -5,6 +5,8 @@ import { User } from '../interfaces/user';
 @Injectable({
   providedIn: 'root'
 })
+
+// Service used when a user attempts to log in. 
 export class LoginService {
   users: User[] = [
     {
@@ -40,15 +42,12 @@ export class LoginService {
   ];
 
   constructor(private userAccountService: UserAccountService) { }
-  // Simulate checking a database of users
 
-
+  // Used on the log-in page to Simulate checking a database of users, validating the username/password, and updating the app
   validateUser(userName: string, password: string): boolean{
-    //let foundUser: User;
     let isValidated:boolean = false;
     this.users.forEach((currentUser: User) => {
       if(currentUser.username === userName && currentUser.password === password){
-        //foundUser = currentUser;
         this.userAccountService.create(currentUser);
         isValidated = true;
       }

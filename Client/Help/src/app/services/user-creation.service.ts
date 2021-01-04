@@ -5,7 +5,10 @@ import {UserAccountService} from '../services/user-account.service';
 @Injectable({
   providedIn: 'root'
 })
+
+// Service used during the user creation process
 export class UserCreationService {
+  // Temp user updated during the user creation process. Later used to update the user-account service
   newUser: User ={
     username: "",
     password: "",
@@ -16,22 +19,25 @@ export class UserCreationService {
     topFiveProfiles: [],
     connections: [],
   }
+
   constructor(private userAccountService: UserAccountService) { }
 
-  // Create a temp user during user account creation 
+  // Create a temp user (newUswer) during user account creation 
   setUpUser( tempUser: User){
     this.newUser = tempUser;
-    //console.log(this.newUser); // TESTING ONLY
   }
 
+  // Method used on the setup user account pages to update the temp user (newUser)
   updateFirstName(fName: string) {
       this.newUser.firstName = fName;    
   }
 
+  // Method used on the setup user account pages to update the temp user (newUser)
   updateLastName(lName: string) {
       this.newUser.lastName = lName;    
   }
 
+  // Method used on the setup user account pages to update the temp user (newUser)
   updatephone(phone: string) {
       this.newUser.phone = phone;    
   }
@@ -42,6 +48,4 @@ export class UserCreationService {
 
     // TODO: update database
   }
-
-
 }
