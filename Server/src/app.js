@@ -7,6 +7,7 @@ import errorHandler from "./middleware/errorHandler";
 import { NotFoundError } from "./helpers/errors";
 import authRouter from "./routes/auth.route";
 import statusRouter from "./routes/status.route";
+import cors from "cors";
 
 config()
 
@@ -15,7 +16,7 @@ const app = express();
 if (["development", "production"].includes(process.env.NODE_ENV)) {
   app.use(logger("dev"));
 }
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser())

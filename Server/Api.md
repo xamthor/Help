@@ -3,12 +3,14 @@
 **Auth**
 
 Post: /auth/login
+
 `{
     "email": "",
     "password": ""
 }`
 
 Post: /auth/signup
+
 `{
     "id": 1,
     "email": "",
@@ -19,10 +21,13 @@ Post: /auth/signup
 **Status**
 
 Post: /status/create
+
 `{
     "content": ""
 }`
+
 Get: /status/latest
+
 `{
 	"id": "5ff54ce21a7b19271bf6c944",
     "user_id": ""
