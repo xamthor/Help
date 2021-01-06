@@ -69,6 +69,20 @@ export default {
     })(req, res, next);
   },
 
+  socialAuth: async (req, res) => {
+    try {
+      const { authInfo, user } = req;
+      createCookieFromToken(user, authInfo.statusCode || 201, req, res);
+    } catch (err) {
+      res.status(500).json({
+        status: 'error',
+        error: {
+          message: err.message,
+        },
+      });
+    }
+  },
+
   protectedRoute: async (req, res) => {
     res.status(200).json({
       status: "success",
