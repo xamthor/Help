@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {UserAccountService} from '../../services/user-account.service';
 import {UserCreationService} from '../../services/user-creation.service';
 import {LoginService} from '../../services/login.service';
 import {User} from '../../interfaces/user'
@@ -25,12 +24,12 @@ export class LoginScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    if(this.loginService.validateUser(this.newUserName, this.newUserPassword)){        
-      this.router.navigate(['/feed']); // Redirect the user to the user account setup screen 
-    }else{
+  // Log in the user. If incorrect, show a error message
+  async login(){
+     let test = await this.loginService.validateUser(this.newUserEmail, this.newUserPassword); // It always returns a undefined. 
+     if(test === undefined){
       this.inValidLogin = true;
-    }
+     }
   }
 
   //Creates a new User and add to the User Database
