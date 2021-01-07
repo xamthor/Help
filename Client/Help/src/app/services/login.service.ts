@@ -3,6 +3,7 @@ import {UserAccountService} from '../services/user-account.service';
 import {AuthenticateService} from '../services/authenticate.service';
 import { User } from '../interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -60,17 +61,19 @@ export class LoginService {
   async validateUser(userEmail: string, password: string): Promise<boolean>{
     
     let isValidated:boolean = false;
+    let data;
+
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
-     await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
-      results => {
+    data = await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
+      results =>  {
         console.log(results);
         this.newUser.username = results.data.user.userName;
         this.newUser.email = results.data.user.email;
         this.newUser.firstName = results.data.user.userName;
         this.authenticateUser.updateToken(results.token)
         this.userAccountService.create(this.newUser)
-        isValidated = true;
+        return results.data;
       },
       Error => {
         console.log('Error happened')
@@ -78,6 +81,12 @@ export class LoginService {
       
     );
 
-    return isValidated;
+      if(data){
+        return true;
+      }else{
+        return false
+      }
+    
+    // return isValidated;
   }
 }

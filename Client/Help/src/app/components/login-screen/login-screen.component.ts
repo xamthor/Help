@@ -25,12 +25,14 @@ export class LoginScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    let test =this.loginService.validateUser(this.newUserEmail, this.newUserPassword);
-    console.log(test)
-    if(test){        
+  async login(){
+    let test = await this.loginService.validateUser(this.newUserEmail, this.newUserPassword);
+    console.log(test);
+    if(test){   
+       //console.log(test)    
       this.router.navigate(['/feed']); // Redirect the user to the user account setup screen 
     }else{
+      console.log("false test")
       this.inValidLogin = true;
     }
   }
