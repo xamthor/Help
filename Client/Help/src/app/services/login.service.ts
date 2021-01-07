@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserAccountService} from '../services/user-account.service';
+import {AuthenticateService} from '../services/authenticate.service';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -41,45 +42,65 @@ export class LoginService {
     },
   ];
 
-  constructor(private userAccountService: UserAccountService) { }
+  newUser: User ={
+    username: "",
+    password: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    topFiveProfiles: [],
+    connections: [],
+  }
+
+  constructor(private userAccountService: UserAccountService, private authenticateUser: AuthenticateService) { }
 
   // Used on the log-in page to Simulate checking a database of users, validating the username/password, and updating the app
-  validateUser(userName: string, password: string): boolean{
+  async validateUser(userName: string, password: string): Promise<boolean>{
     
     let isValidated:boolean = false;
-/*
-    this.users.forEach((currentUser: User) => {
-      if(currentUser.username === userName && currentUser.password === password){
-        this.userAccountService.create(currentUser);
-        isValidated = true;
-      }
-    })
-*/
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
 
-var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-type RequestInit = {
-  method: string,
-  headers: Headers,
-  body: string,
-  redirect: 'follow'
-}
+    var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
 
-var requestOptions: RequestInit = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+    type RequestInit = {
+      method: string,
+      headers: Headers,
+      body: string,
+      redirect: 'follow'
+    }
 
-fetch("http://localhost:3000/auth/login", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+    var requestOptions: RequestInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
 
+    await fetch("http://localhost:3000/auth/login", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        let data = JSON.parse(result);
+        if(data.status === "success"){
+            this.newUser.username = data.data.userName;
+            this.newUser.email = data.data.email;
 
-    return isValidated;    
+            this.authenticateUser.updateToken(data.token)
+            isValidated = true;
+            return isValidated;
+        }else{
+          console.log("Unsuccessful login")
+          return isValidated;
+        }
+
+      })
+      .catch(error => {
+        console.log('error', error)
+        return isValidated;
+      });  
+
+      return isValidated;
   }
 }
