@@ -25,6 +25,8 @@ Get: /profile/
 Post: /profile/update
 
 `{
+    "email": "test@test.com",
+    "userName": "miguel",
     "firstName": "Joe",
     "lastName": "Smith",
     "phoneNumber": "479 111 2223"
