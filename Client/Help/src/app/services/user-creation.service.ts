@@ -24,6 +24,30 @@ export class UserCreationService {
 
   // Create a temp user (newUswer) during user account creation 
   setUpUser( tempUser: User){
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({"id":1,"email":tempUser.email,"password":tempUser.password,"userName":tempUser.username});
+
+    type RequestInit = {
+      method: string,
+      headers: Headers,
+      body: string,
+      redirect: 'follow'
+    }
+
+    var requestOptions : RequestInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:3000/auth/signup", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
     this.newUser = tempUser;
   }
 
