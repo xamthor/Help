@@ -1,10 +1,8 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { Connection } from '../interfaces/connections';
 import { User } from '../interfaces/user';
 import * as _ from 'lodash';
 import {Router} from '@angular/router';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,8 +40,6 @@ export class UserAccountService {
   // Method to update the current user from the Login and User Creation services
   create(user: User) {
     this.currentUser = user;
-console.log(`Create() has updated the current user`); // TESTING
-console.log(this.currentUser); // TESTING
     // TODO: Replace this method implementation with a call to the server to create an account
   }
 
@@ -61,8 +57,7 @@ console.log(this.currentUser); // TESTING
   }
 
   // Method used on the content-header component to display the current user's first  name
-  getFirstName() {
-console.log(`Testing first name ${this.currentUser.firstName}`); // TESTING    
+  getFirstName() { 
     return this.currentUser.firstName;    
   }
 

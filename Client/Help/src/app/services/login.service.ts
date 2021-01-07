@@ -11,39 +11,6 @@ import {Router} from '@angular/router';
 
 // Service used when a user attempts to log in. 
 export class LoginService {
-  users: User[] = [
-    {
-      username: 'jsmiley',
-      password: 'password',
-      email: 'jsmiley@foo.bar',
-      firstName: 'JC',
-      lastName: 'Smiley',
-      phone: '1234567890',
-      topFiveProfiles: [
-        { firstName: 'Katie' },
-        { firstName: 'Jen' },
-        { firstName: 'Joe' },
-        { firstName: 'Charlie' },
-        { firstName: 'Jake' },
-      ],
-      connections: [
-        { name: 'Jen Turner', lastMessageTimeStamp: 23 },
-        { name: 'Jake Stafford', lastMessageTimeStamp: 26 },
-        { name: 'Katie Drake', lastMessageTimeStamp: 32 },
-        { name: 'Joe McCarty', lastMessageTimeStamp: 40 },
-        { name: 'Charlie Patterson', lastMessageTimeStamp: 48 },
-        { name: 'James Bond', lastMessageTimeStamp: 48 },
-        { name: 'Daisy Watson', lastMessageTimeStamp: 49 },
-        { name: 'Tommy Drake', lastMessageTimeStamp: 0 },
-        { name: 'Bacari White', lastMessageTimeStamp: 0 },
-        { name: 'Maranida Watson', lastMessageTimeStamp: 0 },
-        { name: 'Nate Stokes', lastMessageTimeStamp: 0 },
-        { name: 'Sean Wilson', lastMessageTimeStamp: 0 },
-        { name: 'Paul Malon', lastMessageTimeStamp: 0 },
-      ],
-    },
-  ];
-
   newUser: User ={
     username: "",
     password: "",
@@ -61,10 +28,10 @@ export class LoginService {
   async validateUser(userName: string, password: string){
 
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    var raw = JSON.stringify({"email":"admin10@google.com","password":"password"});
+    var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
     await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
       results => {
-        console.log(results);
+        //console.log(results); // TESTING
         this.newUser.username = results.data.user.userName;
         this.newUser.email = results.data.user.email;
         this.newUser.firstName = results.data.user.userName;
@@ -73,7 +40,7 @@ export class LoginService {
         this.router.navigate(['/feed']);
       },
       Error => {
-        console.log('Error happened',Error)
+        console.log('Error happened')
       }
       
     );
