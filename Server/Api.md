@@ -17,6 +17,24 @@ Post: /auth/signup
     "password": ""
 }`
 
+return data 
+
+`{
+    "status": "success",
+    "token": "tokendata",
+    "data": {
+        "user": {
+            "phoneNumber": "test",
+            "firstName": "sss",
+            "lastName": "",
+            "_id": "5ff775300e93ac0793f5f3fc",
+            "email": "ssadddn1@google.com",
+            "userName": "yoyo",
+            "__v": 0
+        }
+    }
+}`
+
 **Profile**
 
 Get: /profile/
@@ -32,6 +50,14 @@ Post: /profile/update
 }`
 
 **Status**
+
+Get: /status/all  "limit 30 newest status"
+
+`{
+   {....},
+   {....},
+   {....},
+}`
 
 Post: /status/create
 
@@ -56,13 +82,13 @@ Get: /status/latest
 
 /connection/create
 
-**Feed**
-
-/feed/
-
 **Search**
 
 /search/
+
+**Feed**
+
+/feed/
 
 **Message**
 
