@@ -12,7 +12,6 @@ Post: /auth/login
 Post: /auth/signup
 
 `{
-    "id": 1,
     "email": "",
     "userName": "",
     "password": ""
