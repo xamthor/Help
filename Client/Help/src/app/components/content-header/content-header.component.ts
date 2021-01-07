@@ -10,7 +10,7 @@ import {UserAccountService} from '../../services/user-account.service';
 export class ContentHeaderComponent implements OnInit {
   profilePic = faUserCircle;
   menu = faBars;
-  firstName : string = this.userAccountService.getFirstName();
+  firstName : string = "";
 
   constructor(private userAccountService: UserAccountService) { }
 
@@ -19,6 +19,15 @@ export class ContentHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.firstName = this.userAccountService.getFirstName();
+    this.updateFirstName();
   }  
+
+  updateFirstName(){
+    this.userAccountService.getFirstName().subscribe(name => {
+      console.log(`Name is ${name}`);
+      this.firstName = name;
+    })
+  }
 
 }

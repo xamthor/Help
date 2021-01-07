@@ -57,7 +57,7 @@ export class LoginService {
   constructor(private userAccountService: UserAccountService, private authenticateUser: AuthenticateService, private http: HttpClient) { }
 
   // Used on the log-in page to Simulate checking a database of users, validating the username/password, and updating the app
-  async validateUser(userName: string, password: string): Promise<boolean>{
+  async validateUser(userEmail: string, password: string): Promise<boolean>{
     
     let isValidated:boolean = false;
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});

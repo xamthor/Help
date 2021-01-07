@@ -4,6 +4,7 @@ import { Connection } from '../interfaces/connections';
 import { User } from '../interfaces/user';
 import * as _ from 'lodash';
 import {Router} from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
