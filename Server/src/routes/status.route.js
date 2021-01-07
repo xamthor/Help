@@ -3,11 +3,12 @@ import statusController from "../controllers/status.controller";
 import catchAsync from "../middleware/catchAsync";
 import authentication from "../middleware/authenticate";
 
-const { create, latest } = statusController;
+const { create, latest, all } = statusController;
 const { authenticate } = authentication;
 
 const testRouter = Router();
 
+testRouter.get("/all", authenticate, catchAsync(all));
 testRouter.post("/create", authenticate, catchAsync(create));
 testRouter.get("/latest", authenticate, catchAsync(latest));
 
