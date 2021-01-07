@@ -8,6 +8,6 @@ const { authenticate } = authentication;
 
 const profileRouter = Router();
 
-profileRouter.get("/update", authenticate, catchAsync(update));
+profileRouter.post("/update", authenticate, catchAsync(update));
 
 export default profileRouter;
