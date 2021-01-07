@@ -62,7 +62,7 @@ export class LoginService {
     let isValidated:boolean = false;
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
-    await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
+     await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
       results => {
         console.log(results);
         this.newUser.username = results.data.user.userName;
@@ -77,7 +77,6 @@ export class LoginService {
       }
       
     );
-
 
     return isValidated;
   }
