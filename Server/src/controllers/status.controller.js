@@ -30,7 +30,7 @@ export default {
 
 latest: async (req, res) => {
     // console.log(req.user.id);
-    Status.find({ user_id: req.user.id }).sort({$natural:-1}).limit( 1 )
+    Status.find({ user_id: req.user.id }).sort({$natural:-1}).limit(1)
     .then(status => {
         res.send(status);
     }).catch(err => {

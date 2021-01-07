@@ -9,6 +9,7 @@ config();
 const jwtPrivateSecret = process.env.JWT_PRIVATE_SECRET.replace(/\\n/g, "\n");
 
 const userSchema = new mongoose.Schema({
+
   email: {
     type: String,
     validate: [validator.isEmail, "Please provide a valid email address"],
@@ -16,17 +17,39 @@ const userSchema = new mongoose.Schema({
     unique: true
 
   },
+
   userName: {
     type: String,
     required: [true, 'userName is required'],
     unique: true
   },
+
+  phoneNumber: {
+    type: String,
+    required: [false, 'Phone Number is required'],
+    default: ''
+  },
+
+  firstName: {
+    type: String,
+    required: [false, 'First Name is required'],
+    default: ''
+  },
+
+  lastName: {
+    type: String,
+    required: [false, 'Last Name is required'],
+    default: ''
+  },
+
   googleId: String,
+
   password: {
     type: String,
     required: [true, "password is required"],
     minlength: 8,
   },
+
 });
 
 userSchema.pre("save", async function (next) {

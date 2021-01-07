@@ -13,13 +13,13 @@ const authRouter = Router();
 
 authRouter.post("/signup", catchAsync(signup));
 authRouter.post("/login", catchAsync(login));
+
 authRouter.get("/google",
   passport.authenticate("google", {
     session: false,
     scope: ["profile", "email"],
   })
 );
-
 // callback route for google
 authRouter.get("/google/callback",
   passport.authenticate("google", {

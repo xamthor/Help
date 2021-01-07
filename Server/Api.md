@@ -5,7 +5,7 @@
 Post: /auth/login
 
 `{
-    "email": "",
+    "email": "email | username",
     "password": ""
 }`
 
@@ -16,6 +16,18 @@ Post: /auth/signup
     "email": "",
     "userName": "",
     "password": ""
+}`
+
+**Profile**
+
+Get: /profile/
+
+Post: /profile/update
+
+`{
+    "firstName": "Joe",
+    "lastName": "Smith",
+    "phoneNumber": "479 111 2223"
 }`
 
 **Status**

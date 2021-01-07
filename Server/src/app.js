@@ -7,6 +7,7 @@ import errorHandler from "./middleware/errorHandler";
 import { NotFoundError } from "./helpers/errors";
 import authRouter from "./routes/auth.route";
 import statusRouter from "./routes/status.route";
+import profileRouter from "./routes/profile.route";
 import cors from "cors";
 
 config()
@@ -24,6 +25,7 @@ app.use(cookieParser())
 passport.initialize()
 
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 app.use('/status', statusRouter);
 
 app.get("/", (_, res) => {
