@@ -15,7 +15,7 @@ export class UserAccountService {
     username: "",
     password: "",
     email: "",
-    firstName: "",
+    firstName: "Bob",
     lastName: "",
     phone: "",
     topFiveProfiles: [],
@@ -41,7 +41,8 @@ export class UserAccountService {
   // Method to update the current user from the Login and User Creation services
   create(user: User) {
     this.currentUser = user;
-
+console.log(`Create() has updated the current user`); // TESTING
+console.log(this.currentUser); // TESTING
     // TODO: Replace this method implementation with a call to the server to create an account
   }
 
@@ -60,6 +61,7 @@ export class UserAccountService {
 
   // Method used on the content-header component to display the current user's first  name
   getFirstName() {
+console.log(`Testing first name ${this.currentUser.firstName}`); // TESTING    
     return this.currentUser.firstName;    
   }
 
