@@ -58,10 +58,8 @@ passport.use(
         });
       }
 
-      const newUser = new User();
-      newUser.email = req.body.email;
-      newUser.password = req.body.password;
-      newUser.userName = req.body.userName;
+      const newUser = new User(req.body);
+      
       await newUser.save();
       return cb(null, newUser);
     } catch (err) {
