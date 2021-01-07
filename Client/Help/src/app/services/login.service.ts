@@ -56,14 +56,14 @@ export class LoginService {
   constructor(private userAccountService: UserAccountService, private authenticateUser: AuthenticateService) { }
 
   // Used on the log-in page to Simulate checking a database of users, validating the username/password, and updating the app
-  async validateUser(userName: string, password: string): Promise<boolean>{
+  async validateUser(userEmail: string, password: string): Promise<boolean>{
     
     let isValidated:boolean = false;
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
+    var raw = JSON.stringify({"email":userEmail,"password":password});
 
     type RequestInit = {
       method: string,
@@ -83,17 +83,17 @@ export class LoginService {
       .then(response => response.text())
       .then(result => {
         let data = JSON.parse(result);
-        if(data.status === "success"){
-            this.newUser.username = data.data.userName;
-            this.newUser.email = data.data.email;
+//console.log(data);        // TESTING
+        this.newUser.username = data.data.user.userName;
+        this.newUser.email = data.data.user.email;
+        this.newUser.password = password;
+        this.newUser.firstName = data.data.user.userName;
 
-            this.authenticateUser.updateToken(data.token)
-            isValidated = true;
-            return isValidated;
-        }else{
-          console.log("Unsuccessful login")
-          return isValidated;
-        }
+        this.authenticateUser.updateToken(data.token);
+        this.userAccountService.create(this.newUser);
+        isValidated = true;
+        return isValidated;
+        
 
       })
       .catch(error => {

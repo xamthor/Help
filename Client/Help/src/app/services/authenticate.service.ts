@@ -20,6 +20,5 @@ export class AuthenticateService {
 
   updateToken(newToken: string){
     this.authenticateUser = newToken;
-    console.log(`Auth is ${newToken}`); //  Testing
   }
 }

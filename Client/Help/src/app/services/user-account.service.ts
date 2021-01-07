@@ -4,6 +4,7 @@ import { Connection } from '../interfaces/connections';
 import { User } from '../interfaces/user';
 import * as _ from 'lodash';
 import {Router} from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class UserAccountService {
     username: "",
     password: "",
     email: "",
-    firstName: "",
+    firstName: "Bob",
     lastName: "",
     phone: "",
     topFiveProfiles: [],
@@ -41,7 +42,8 @@ export class UserAccountService {
   // Method to update the current user from the Login and User Creation services
   create(user: User) {
     this.currentUser = user;
-
+    //console.log(`create user`);
+    //console.log(this.currentUser);
     // TODO: Replace this method implementation with a call to the server to create an account
   }
 
@@ -59,8 +61,10 @@ export class UserAccountService {
   }
 
   // Method used on the content-header component to display the current user's first  name
-  getFirstName() {
-    return this.currentUser.firstName;    
+  getFirstName() :Observable<string> {
+    //console.log(`get first name`);
+    //console.log(this.currentUser);
+    return of(this.currentUser.firstName);    
   }
 
   // Return's the current user's username

@@ -26,7 +26,7 @@ export class LoginScreenComponent implements OnInit {
   }
 
   login(){
-    if(this.loginService.validateUser(this.newUserName, this.newUserPassword)){        
+    if(this.loginService.validateUser(this.newUserEmail, this.newUserPassword)){        
       this.router.navigate(['/feed']); // Redirect the user to the user account setup screen 
     }else{
       this.inValidLogin = true;
