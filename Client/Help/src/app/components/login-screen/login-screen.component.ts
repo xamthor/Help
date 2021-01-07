@@ -26,15 +26,10 @@ export class LoginScreenComponent implements OnInit {
   }
 
   async login(){
-    let test = await this.loginService.validateUser(this.newUserEmail, this.newUserPassword);
-    console.log(test);
-    if(test){   
-       //console.log(test)    
-      this.router.navigate(['/feed']); // Redirect the user to the user account setup screen 
-    }else{
-      console.log("false test")
+     let test = await this.loginService.validateUser(this.newUserEmail, this.newUserPassword);
+     if(test === undefined){
       this.inValidLogin = true;
-    }
+     }
   }
 
   //Creates a new User and add to the User Database
