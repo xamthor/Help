@@ -45,13 +45,40 @@ export class LoginService {
 
   // Used on the log-in page to Simulate checking a database of users, validating the username/password, and updating the app
   validateUser(userName: string, password: string): boolean{
+    
     let isValidated:boolean = false;
+/*
     this.users.forEach((currentUser: User) => {
       if(currentUser.username === userName && currentUser.password === password){
         this.userAccountService.create(currentUser);
         isValidated = true;
       }
     })
+*/
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
+
+type RequestInit = {
+  method: string,
+  headers: Headers,
+  body: string,
+  redirect: 'follow'
+}
+
+var requestOptions: RequestInit = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:3000/auth/login", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
 
     return isValidated;    
   }
