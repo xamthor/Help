@@ -4,6 +4,9 @@ import jwt from "jsonwebtoken";
 import { config } from "dotenv";
 import validator from "validator";
 
+import plugin from "mongoose-partial-search";
+
+
 config();
 
 const jwtPrivateSecret = process.env.JWT_PRIVATE_SECRET.replace(/\\n/g, "\n");
@@ -21,7 +24,8 @@ const userSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: [true, 'userName is required'],
-    unique: true
+    unique: true,
+    searchable: true,
   },
 
   phoneNumber: {
@@ -33,13 +37,15 @@ const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: [false, 'First Name is required'],
-    default: ''
+    default: '',
+    searchable: true,
   },
 
   lastName: {
     type: String,
     required: [false, 'Last Name is required'],
-    default: ''
+    default: '',
+    searchable: true,
   },
 
   googleId: String,
@@ -51,6 +57,8 @@ const userSchema = new mongoose.Schema({
   },
 
 });
+
+userSchema.plugin(plugin);
 
 userSchema.pre("save", async function (next) {
   if (!this.password || !this.isModified("password")) return next;

@@ -54,7 +54,13 @@ Post: /profile/update
 Get: /status/all  "limit 30 newest status"
 
 `{
-   {....},
+   {
+        "_id": "",
+        "user_id": "",
+        "content": "",
+        "timestamp": "2021-01-07T21:01:29.306Z",
+        "__v": 0
+    },
    {....},
    {....},
 }`
@@ -76,6 +82,8 @@ Get: /status/latest
 
 **Connections**
 
+/connection
+
 /connection/topfive
 
 /connection/add
@@ -84,7 +92,24 @@ Get: /status/latest
 
 **Search**
 
-/search/
+/search?s=search-term "limit 10 users"
+
+returns array of user objects
+
+`[
+    {
+        "phoneNumber": "",
+        "firstName": "",
+        "lastName": "",
+        "_id": "",
+        "email": "",
+        "userName": "",
+        "__v": 0
+    },
+    {....},
+    {....},
+]`
+
 
 **Feed**
 
