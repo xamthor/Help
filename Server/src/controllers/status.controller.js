@@ -40,4 +40,16 @@ latest: async (req, res) => {
     });
 },
 
+all: async (req, res) => {
+    // console.log(req.user.id);
+    Status.find().sort({$natural:-1}).limit(30)
+    .then(status => {
+        res.send(status);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving status."
+        });
+    });
+},
+
 };
