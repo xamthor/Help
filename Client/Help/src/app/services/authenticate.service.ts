@@ -20,5 +20,10 @@ export class AuthenticateService {
 
   updateToken(newToken: string){
     this.authenticateUser = newToken;   
+    console.log(newToken);
+  }
+
+  getAuthToken(){
+    return this.authenticateUser;
   }
 }

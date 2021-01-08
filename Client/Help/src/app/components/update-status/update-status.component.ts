@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {StatusService} from '../../services/status.service';
 
 @Component({
   selector: 'app-update-status',
@@ -10,7 +11,7 @@ export class UpdateStatusComponent implements OnInit {
   titleEmotion: string = "How do you feel?"; // Input field title and sets the icon in the input field
   content:string = "";
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private status:StatusService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class UpdateStatusComponent implements OnInit {
 
 
   updateStatus(){
+    this.status.updateStatus(this.content);
     this.router.navigate(['/feed']);
   }
 
