@@ -13,8 +13,8 @@ export class StatusService {
 
   async updateStatus(userContent: string){
     const authToken = this.authenticateUser.getAuthToken();
-    console.log(authToken);
-    this.cookieService.set('Cookie',authToken);
+    //console.log(authToken);
+    this.cookieService.set('jwt',authToken);
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8', 'Authorization': authToken});
     let options = { headers: headers, withCredentials: true };
     var raw = JSON.stringify({"content":userContent});
