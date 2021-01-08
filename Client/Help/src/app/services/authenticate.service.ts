@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 
-// Share authentication of user after login
+// Share the authentication token of the user after log-in
 export class AuthenticateService {
 
   authenticateUser: string = ""
@@ -19,6 +19,6 @@ export class AuthenticateService {
   }
 
   updateToken(newToken: string){
-    this.authenticateUser = newToken;
+    this.authenticateUser = newToken;   
   }
 }

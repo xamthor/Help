@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
 import {UserAccountService} from '../services/user-account.service';
+import {AuthenticateService} from '../services/authenticate.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,7 @@ import {UserAccountService} from '../services/user-account.service';
 export class UserCreationService {
   // Temp user updated during the user creation process. Later used to update the user-account service
   newUser: User ={
-    username: "",
+    userName: "",
     password: "",
     email: "",
     firstName: "",
@@ -20,34 +23,10 @@ export class UserCreationService {
     connections: [],
   }
 
-  constructor(private userAccountService: UserAccountService) { }
+  constructor(private userAccountService: UserAccountService, private http: HttpClient, private router:Router, private authenticateUser: AuthenticateService) { }
 
   // Create a temp user (newUswer) during user account creation 
   setUpUser( tempUser: User){
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({"id":1,"email":tempUser.email,"password":tempUser.password,"userName":tempUser.username});
-
-    type RequestInit = {
-      method: string,
-      headers: Headers,
-      body: string,
-      redirect: 'follow'
-    }
-
-    var requestOptions : RequestInit = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
-
-    fetch("http://localhost:3000/auth/signup", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-
     this.newUser = tempUser;
   }
 
@@ -67,9 +46,20 @@ export class UserCreationService {
   }
 
   // Update the user account service and database with the temp user
-  createUser(){
+  async createUser(){
     this.userAccountService.create(this.newUser);
 
-    // TODO: update database
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+    var raw = JSON.stringify(this.newUser);
+    await this.http.post<any>('http://localhost:3000/auth/signup', raw,{headers: headers}).subscribe(
+      results => {
+        this.authenticateUser.updateToken(results.token) //record the auth token
+        this.router.navigate(['/feed']);
+      },
+      Error => {
+        console.log('Error happened')
+      }
+      
+    );
   }
 }

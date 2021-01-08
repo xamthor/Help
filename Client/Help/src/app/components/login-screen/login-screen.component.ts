@@ -36,7 +36,7 @@ export class LoginScreenComponent implements OnInit {
   createAccountAndLogin() {
     try {
       let newUser : User = {
-        username: this.newUserName,
+        userName: this.newUserName,
         password: this.newUserPassword,
         email: this.newUserEmail,
         firstName: "",

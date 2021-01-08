@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 // Service use to load the current user and then update the app communication's pages with content
 export class UserAccountService {
   currentUser: User = {
-    username: "",
+    userName: "",
     password: "",
     email: "",
     firstName: "Bob",
@@ -26,7 +26,7 @@ export class UserAccountService {
   // Method in the content-header component to log out the user
   logOut(){
     this.currentUser = {
-      username: "",
+      userName: "",
       password: "",
       email: "",
       firstName: "",
@@ -64,7 +64,7 @@ export class UserAccountService {
   // Return's the current user's username
   getUserName() {
     // TODO check the current session to detect which user is active
-    return this.currentUser.username;
+    return this.currentUser.userName;
   }
 
   // Method used on the content-feed and content-connections pages to display a user's connections
