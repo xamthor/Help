@@ -18,7 +18,7 @@ export class UserCreationService {
     email: "",
     firstName: "",
     lastName: "",
-    phone: "",
+    phoneNumber: "",
     topFiveProfiles: [],
     connections: [],
   }
@@ -42,7 +42,7 @@ export class UserCreationService {
 
   // Method used on the setup user account pages to update the temp user (newUser)
   updatephone(phone: string) {
-      this.newUser.phone = phone;    
+      this.newUser.phoneNumber = phone;    
   }
 
   // Update the user account service and database with the temp user

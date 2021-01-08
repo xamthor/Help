@@ -27,6 +27,7 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9.8.6",
     "lodash": "^4.17.20",
+    "ngx-cookie-service": "^11.0.2",
     "postcss": "^7.0.35",
     "rxjs": "~6.6.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",

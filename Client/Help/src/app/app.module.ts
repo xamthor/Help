@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from  '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,8 @@ import { ContentTopViewComponent } from './components/content-top-view/content-t
 import { ContentMessagesGalleryComponent } from './components/content-messages-gallery/content-messages-gallery.component';
 import { ConnectionsContentComponent } from './components/connections-content/connections-content.component';
 import { ContentConnectionsGalleryComponent } from './components/content-connections-gallery/content-connections-gallery.component';
+import { UpdateStatusComponent } from './components/update-status/update-status.component';
+import { MenuScreenComponent } from './components/menu-screen/menu-screen.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { ContentConnectionsGalleryComponent } from './components/content-connect
     ContentTopViewComponent,
     ContentMessagesGalleryComponent,
     ConnectionsContentComponent,
-    ContentConnectionsGalleryComponent
+    ContentConnectionsGalleryComponent,
+    UpdateStatusComponent,
+    MenuScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ import { ContentConnectionsGalleryComponent } from './components/content-connect
     AppRoutingModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

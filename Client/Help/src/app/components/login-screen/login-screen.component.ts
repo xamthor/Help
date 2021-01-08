@@ -41,7 +41,7 @@ export class LoginScreenComponent implements OnInit {
         email: this.newUserEmail,
         firstName: "",
         lastName: "",
-        phone: "",
+        phoneNumber: "",
         topFiveProfiles: [],
         connections: [],
       };
