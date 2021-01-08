@@ -20,6 +20,7 @@ import { ContentMessagesGalleryComponent } from './components/content-messages-g
 import { ConnectionsContentComponent } from './components/connections-content/connections-content.component';
 import { ContentConnectionsGalleryComponent } from './components/content-connections-gallery/content-connections-gallery.component';
 import { UpdateStatusComponent } from './components/update-status/update-status.component';
+import { MenuScreenComponent } from './components/menu-screen/menu-screen.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UpdateStatusComponent } from './components/update-status/update-status.
     ContentMessagesGalleryComponent,
     ConnectionsContentComponent,
     ContentConnectionsGalleryComponent,
-    UpdateStatusComponent
+    UpdateStatusComponent,
+    MenuScreenComponent
   ],
   imports: [
     BrowserModule,

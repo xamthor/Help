@@ -19,6 +19,10 @@ export class ContentHeaderComponent implements OnInit {
     this.router.navigate(['/update-status']);
   }
 
+  navigateToMenu(){
+    this.router.navigate(['/menu']);
+  }
+
   ngOnInit(): void {
     this.firstName = this.userAccountService.getFirstName();
   }  
