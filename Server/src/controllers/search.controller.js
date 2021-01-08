@@ -9,8 +9,8 @@ export default {
 
     const query = User.searchBuilder(req.query.s);
     User.find(query).limit(10)
-    .then(status => {
-        res.send(status);
+    .then(users => {
+        res.send(users);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving search results."
