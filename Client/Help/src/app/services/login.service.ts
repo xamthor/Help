@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 // Service used when a user attempts to log in. 
 export class LoginService {
   newUser: User ={
-    username: "",
+    userName: "",
     password: "",
     email: "",
     firstName: "",
@@ -32,10 +32,10 @@ export class LoginService {
     await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
       results => {
         //console.log(results); // TESTING
-        this.newUser.username = results.data.user.userName;
+        this.newUser.userName = results.data.user.userName;
         this.newUser.email = results.data.user.email;
         this.newUser.firstName = results.data.user.userName;
-        this.authenticateUser.updateToken(results.token)
+        this.authenticateUser.updateToken(results.token) // Save the user's token
         this.userAccountService.create(this.newUser);
         this.router.navigate(['/feed']);
       },
