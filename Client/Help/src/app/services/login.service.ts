@@ -17,7 +17,7 @@ export class LoginService {
     email: "",
     firstName: "",
     lastName: "",
-    phone: "",
+    phoneNumber: "",
     topFiveProfiles: [],
     connections: [],
   }

@@ -16,7 +16,7 @@ export class UserAccountService {
     email: "",
     firstName: "Bob",
     lastName: "",
-    phone: "",
+    phoneNumber: "",
     topFiveProfiles: [],
     connections: [],
   }
@@ -31,7 +31,7 @@ export class UserAccountService {
       email: "",
       firstName: "",
       lastName: "",
-      phone: "",
+      phoneNumber: "",
       topFiveProfiles: [],
       connections: [],
     }
