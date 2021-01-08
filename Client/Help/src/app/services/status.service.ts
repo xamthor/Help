@@ -14,11 +14,11 @@ export class StatusService {
   async updateStatus(userContent: string){
     const authToken = this.authenticateUser.getAuthToken();
     console.log(authToken);
-    this.cookieService.set('Set-Cookie',authToken);
+    this.cookieService.set('Cookie',authToken);
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8', 'Authorization': authToken});
-    //let options = { headers: headers, withCredentials: true };
+    let options = { headers: headers, withCredentials: true };
     var raw = JSON.stringify({"content":userContent});
-    await this.http.post<any>('http://localhost:3000/status/create', raw, {headers}).subscribe(
+    await this.http.post<any>('http://localhost:3000/status/create', raw, options).subscribe(
       results => {
 
         console.log(results);
