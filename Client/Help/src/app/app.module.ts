@@ -19,6 +19,7 @@ import { ContentTopViewComponent } from './components/content-top-view/content-t
 import { ContentMessagesGalleryComponent } from './components/content-messages-gallery/content-messages-gallery.component';
 import { ConnectionsContentComponent } from './components/connections-content/connections-content.component';
 import { ContentConnectionsGalleryComponent } from './components/content-connections-gallery/content-connections-gallery.component';
+import { UpdateStatusComponent } from './components/update-status/update-status.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ContentConnectionsGalleryComponent } from './components/content-connect
     ContentTopViewComponent,
     ContentMessagesGalleryComponent,
     ConnectionsContentComponent,
-    ContentConnectionsGalleryComponent
+    ContentConnectionsGalleryComponent,
+    UpdateStatusComponent
   ],
   imports: [
     BrowserModule,

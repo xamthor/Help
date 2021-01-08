@@ -1,0 +1,8 @@
+<main class="flex flex-col justify-around h-screen text-center bg-hero-pattern bg-cover lg:bg-contain lg:bg-no-repeat">
+    <h2 class="text-3xl">Update Your Status</h2>
+    <section class="flex flex-col items-center">
+        <app-login-inputs [title]="titleEmotion" (getUserInput)="getContent($event)"></app-login-inputs>
+        <p class="text-sm text-gray-400">Be brief and under 40 characters</p>
+    </section>
+    <h2 class="text-3xl cursor-pointer" (click)="updateStatus()">Update Status</h2>
+</main>
