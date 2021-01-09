@@ -40,7 +40,7 @@ all: async (req, res) => {
 },
 
 topfive: async (req, res) => {
-    Connection.find({user_id: req.user.id ,  star: true }).limit(5)
+    Connection.find({user_id: req.user.id ,  star: true }).populate('connection_user').limit(5)
     .then(data => {
         res.send({data: data,
                     user: req.user.id });
