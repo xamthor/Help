@@ -21,6 +21,17 @@ export class ConnectionsService {
     return this.http.post<any>(`http://localhost:3000/connection/topfive/add`, raw, options);    
   }
 
+    // Method used on the content connections page to add a user to the top five    
+    removeConnectionTopFive(connectionID:string){
+      const authToken = this.authenticateUser.getAuthToken();
+      this.cookieService.set('jwt',authToken);
+      console.log(authToken);
+      const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+      let options = { headers: headers, withCredentials: true };
+      var raw = JSON.stringify({"connection_user" : connectionID});
+      return this.http.post<any>(`http://localhost:3000/connection/topfive/remove`, raw, options);    
+    }
+
   // Method used on in the search-connections page to search database of users for anyone matching the searchTerm
   searchConnections(searchTerm:string){
     const authToken = this.authenticateUser.getAuthToken();

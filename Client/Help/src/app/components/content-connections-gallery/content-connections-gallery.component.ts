@@ -32,14 +32,17 @@ export class ContentConnectionsGalleryComponent implements OnInit {
 
   addToTopFive(connectionId: string, star: boolean){
     if(star){
-      console.log(`Remove from Top Five ${connectionId}`); // TESTING
-      
+      console.log(`Remove from Top Five ${connectionId} because the star is ${star}`); // TESTING
+      this.connectionsService.removeConnectionTopFive(connectionId).subscribe(data => {
+        console.log(data); //Testing
+        
+      })
     }else{
       this.connectionsService.addConnectionTopFive(connectionId).subscribe(data => {
         console.log(data); //Testing
-        //this.arrayOfProfiles = data;
+        
       })
-      console.log(`Add to Top Five ${connectionId}`); // TESTING
+      console.log(`Add to Top Five ${connectionId} because the star is ${star}`); // TESTING
     }
     
   }
