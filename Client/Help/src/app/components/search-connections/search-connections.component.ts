@@ -44,6 +44,7 @@ export class SearchConnectionsComponent implements OnInit {
   // When user click the add button, save this user as a connection to the database
   createConnection(id:string){
     this.connectionService.createConnection(id);
+    this.router.navigate(['/connections']);
   }
 
   // Capture user input from input field
@@ -60,7 +61,7 @@ export class SearchConnectionsComponent implements OnInit {
   } 
 
   finish(){
-    this.router.navigate(['/feed']);
+    this.router.navigate(['/connections']);
     //console.log('finish adding connections') //Testing
   }
 
