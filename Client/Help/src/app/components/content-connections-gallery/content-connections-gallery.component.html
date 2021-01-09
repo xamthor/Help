@@ -10,6 +10,7 @@
                 >
             <section class="grid grid-row-1 w-full">
                 <fa-icon [icon]="star" 
+                    (click)="addToTopFive(profile.connection_user._id, profile.star)"
                     [ngClass]="{'text-red-600': profile.star === true}" 
                     class="text-sm justify-self-end text-white mr-2"></fa-icon>
                 <fa-icon [icon]="profilePic" class="text-4xl justify-self-center"></fa-icon>

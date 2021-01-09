@@ -30,6 +30,20 @@ export class ContentConnectionsGalleryComponent implements OnInit {
     })
   }
 
+  addToTopFive(connectionId: string, star: boolean){
+    if(star){
+      console.log(`Remove from Top Five ${connectionId}`); // TESTING
+      
+    }else{
+      this.connectionsService.addConnectionTopFive(connectionId).subscribe(data => {
+        console.log(data); //Testing
+        //this.arrayOfProfiles = data;
+      })
+      console.log(`Add to Top Five ${connectionId}`); // TESTING
+    }
+    
+  }
+
   goToSearchConnectionsPage(){
     this.router.navigate(['/search-connections']); // Redirect the user to search connections's screen 
   }
