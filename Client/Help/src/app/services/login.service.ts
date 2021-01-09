@@ -28,7 +28,7 @@ export class LoginService {
   async validateUser(userName: string, password: string){
 
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    var raw = JSON.stringify({"email":"admin1@google.com","password":"password"});
+    var raw = JSON.stringify({"email":userName,"password":password});
     await this.http.post<any>('http://localhost:3000/auth/login', raw,{headers: headers}).subscribe(
       results => {
         //console.log(results); // TESTING

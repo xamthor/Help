@@ -8,8 +8,16 @@
                 [ngClass]="{'bg-blue-300': i%3===0, 'bg-green-300': i%2=== 0, 'bg-yellow-300': i%2 === 1 }"  
                 class="w-40 mb-4 shadow-md rounded-lg text-center"
                 >
-            <fa-icon [icon]="profilePic" class="text-4xl"></fa-icon>
-            <p>{{profile.name}}</p>
+            <section class="grid grid-row-1 w-full">
+                <fa-icon [icon]="star" 
+                    (click)="addToTopFive(profile.connection_user._id, profile.star)"
+                    [ngClass]="{'text-red-600': profile.star === true}" 
+                    class="text-sm justify-self-end text-white mr-2"></fa-icon>
+                <fa-icon [icon]="profilePic" class="text-4xl justify-self-center"></fa-icon>
+                
+            </section>
+            
+            <p>{{profile.connection_user.firstName}} {{profile.connection_user.lastName}}</p>
         </article>
     </section>
 
