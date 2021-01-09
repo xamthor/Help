@@ -82,13 +82,65 @@ Get: /status/latest
 
 **Connections**
 
-/connection
+Get: /connection/all
 
-/connection/topfive
+return all auth user connections
 
-/connection/add
+`[
+    {
+        "connection_id": {
+            "user": "5ff7751f0e93ac0793f5f3fb"
+        },
+        "star": false,
+        "_id": "5ff92d265b0e341bca4cb457",
+        "user_id": "5ff7751f0e93ac0793f5f3fb",
+        "timestamp": "2021-01-09T04:12:22.138Z",
+        "__v": 0
+    },
+    {....},
+    {....},
+]`
 
-/connection/create
+Post: /connection/create
+
+`{
+    "connection_user_id": "5ff775300e93ac0793f5f3fc"
+}`
+
+Get: /connection/topfive
+
+return the top five connections
+
+`[
+    {
+        "connection_id": {
+            "user": "5ff7751f0e93ac0793f5f3fb"
+        },
+        "star": true,
+        "_id": "5ff92d265b0e341bca4cb457",
+        "user_id": "5ff7751f0e93ac0793f5f3fb",
+        "timestamp": "2021-01-09T04:12:22.138Z",
+        "__v": 0
+    },
+    {....},
+    {....},
+]`
+
+Post: /connection/topfive/add
+
+return success or  greator > 5 return message limit reach
+
+`{
+    "connection_id" : "5ff93791afc9e37089b38e54"
+}`
+
+Post: /connection/topfive/remove
+
+remove a star to the connnection selected
+
+`{
+    "connection_id" : "5ff93791afc9e37089b38e54"
+}`
 
 **Search**
 
@@ -109,7 +161,6 @@ returns array of user objects
     {....},
     {....},
 ]`
-
 
 **Feed**
 
