@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import {UserAccountService} from '../../services/user-account.service';
+import {ConnectionsService} from '../../services/connections.service';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 
@@ -17,11 +17,16 @@ export class ContentConnectionsGalleryComponent implements OnInit {
   ]
   faPlus = faPlus;
   profilePic = faUserCircle;
-  arrayOfProfiles = this.dummyData;
+  //arrayOfProfiles = this.dummyData;
+  arrayOfProfiles :any[]= [];
 
-  constructor(private userAccountService:UserAccountService , private router:Router) { }
+  constructor(private connectionsService:ConnectionsService , private router:Router) { }
 
   ngOnInit(): void {
+    this.connectionsService.getAllConnections().subscribe(data => {
+      this.arrayOfProfiles = data;
+      console.log(data);
+    })
   }
 
   goToSearchConnectionsPage(){
