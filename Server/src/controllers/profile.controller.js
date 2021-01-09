@@ -7,7 +7,6 @@ const DEBUG = debug("dev");
 
 export default {
   update: async (req, res) => {
-    console.log(req.body);
     User.find({ _id: req.user.id }).limit(1).update(req.body)
     .then(user => {
         res.send(user);

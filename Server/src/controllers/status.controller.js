@@ -29,7 +29,6 @@ export default {
 },
 
 latest: async (req, res) => {
-    // console.log(req.user.id);
     Status.find({ user_id: req.user.id }).sort({$natural:-1}).limit(1)
     .then(status => {
         res.send(status);
@@ -41,8 +40,7 @@ latest: async (req, res) => {
 },
 
 all: async (req, res) => {
-    // console.log(req.user.id);
-    Status.find().sort({$natural:-1}).limit(30)
+    Status.find({user_id: req.user.id}).sort({$natural:-1}).limit(30)
     .then(status => {
         res.send(status);
     }).catch(err => {
