@@ -48,7 +48,6 @@ export class SetupNameComponent implements OnInit {
     if(this.stage === 2){
       this.userCreationService.updatephone(this.newUserPhone);
       this.userCreationService.createUser();      
-      this.router.navigate(['/search-connections']); // Redirect the user to search connections's screen 
     }
 
     this.stage ++; // Move the user through the three user creation screens

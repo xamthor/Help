@@ -41,8 +41,8 @@ export class SearchConnectionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // When user click the add button, save this user as a connection to the database
   createConnection(id:string){
-    console.log(`${id} connection added to user`);
     this.connectionService.createConnection(id);
   }
 
@@ -54,14 +54,14 @@ export class SearchConnectionsComponent implements OnInit {
   // Search database for users
   findUser(){
     this.connectionService.searchConnections(this.query).subscribe(data => {
-      console.log(data); //Testing
+      //console.log(data); //Testing
       this.arrayOfProfiles = data;
     })
   } 
 
   finish(){
     this.router.navigate(['/feed']);
-    console.log('finish adding connections')
+    //console.log('finish adding connections') //Testing
   }
 
 }
