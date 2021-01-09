@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-connections',
@@ -9,7 +10,7 @@ export class SearchConnectionsComponent implements OnInit {
   titleSearch: string = "Search"; // Input field title and sets the icon in the input field
   query: string = ""; // variable updated from the input designiated input field and then used to update the temp User
 
-  constructor() { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,7 @@ export class SearchConnectionsComponent implements OnInit {
   }  
 
   finish(){
+    this.router.navigate(['/feed']);
     console.log('finish adding connections')
   }
 
