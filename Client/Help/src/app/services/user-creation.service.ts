@@ -54,7 +54,7 @@ export class UserCreationService {
     await this.http.post<any>('http://localhost:3000/auth/signup', raw,{headers: headers}).subscribe(
       results => {
         this.authenticateUser.updateToken(results.token) //record the auth token
-        this.router.navigate(['/feed']);
+        this.router.navigate(['/search-connections']); // Redirect the user to search connections's screen 
       },
       Error => {
         console.log('Error happened')

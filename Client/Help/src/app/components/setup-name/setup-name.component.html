@@ -13,9 +13,5 @@
         <app-login-inputs [title]="titlePhone" (getUserInput)="getPhone($event)"></app-login-inputs>
     </section> 
 
-    <section *ngIf="stage === 3" class="flex flex-col items-center">
-        <app-login-inputs [title]="titleSearch "></app-login-inputs>
-    </section>
-
     <h2 class="text-3xl cursor-pointer  text-black dark:text-white" (click)="goToNextSetupStage()">Next</h2>
 </main>
