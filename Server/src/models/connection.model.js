@@ -9,9 +9,11 @@ const connectionSchema = new mongoose.Schema({
   user_id: {
     type: String,
   },
-  connection_id: {
-        user: { type:mongoose.Schema.Types.ObjectId, ref:'User', required:true }
-    },
+  connection_user: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref:'User', required:true,
+    unique: true
+  },
   star: {
       type: Boolean,
       default: false

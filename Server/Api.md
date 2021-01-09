@@ -88,8 +88,14 @@ return all auth user connections
 
 `[
     {
-        "connection_id": {
-            "user": "5ff7751f0e93ac0793f5f3fb"
+        "connection_user": {
+            "phoneNumber": "test",
+            "firstName": "sss",
+            "lastName": "",
+            "_id": "5ff775300e93ac0793f5f3fc",
+            "email": "ssadddn1@google.com",
+            "userName": "yoyo",
+            "__v": 0
         },
         "star": false,
         "_id": "5ff92d265b0e341bca4cb457",
@@ -104,7 +110,7 @@ return all auth user connections
 Post: /connection/create
 
 `{
-    "connection_user_id": "5ff775300e93ac0793f5f3fc"
+    "connection_user": "5ff775300e93ac0793f5f3fc"
 }`
 
 Get: /connection/topfive
@@ -113,8 +119,14 @@ return the top five connections
 
 `[
     {
-        "connection_id": {
-            "user": "5ff7751f0e93ac0793f5f3fb"
+        "connection_user": {
+            "phoneNumber": "test",
+            "firstName": "sss",
+            "lastName": "",
+            "_id": "5ff775300e93ac0793f5f3fc",
+            "email": "ssadddn1@google.com",
+            "userName": "yoyo",
+            "__v": 0
         },
         "star": true,
         "_id": "5ff92d265b0e341bca4cb457",
@@ -131,7 +143,7 @@ Post: /connection/topfive/add
 return success or  greator > 5 return message limit reach
 
 `{
-    "connection_id" : "5ff93791afc9e37089b38e54"
+    "connection_user" : "5ff93791afc9e37089b38e54"
 }`
 
 Post: /connection/topfive/remove
@@ -139,7 +151,7 @@ Post: /connection/topfive/remove
 remove a star to the connnection selected
 
 `{
-    "connection_id" : "5ff93791afc9e37089b38e54"
+    "connection_user" : "5ff93791afc9e37089b38e54"
 }`
 
 **Search**

@@ -29,7 +29,7 @@ export default {
 },
 
 latest: async (req, res) => {
-    Status.find({ user_id: req.user.id }).sort({$natural:-1}).limit(1)
+    Status.find({ user_id: req.user.id }).populate('user_id').sort({$natural:-1}).limit(1)
     .then(status => {
         res.send(status);
     }).catch(err => {
@@ -40,7 +40,7 @@ latest: async (req, res) => {
 },
 
 all: async (req, res) => {
-    Status.find({user_id: req.user.id}).sort({$natural:-1}).limit(30)
+    Status.find({user_id: req.user.id}).populate('user_id').sort({$natural:-1}).limit(30)
     .then(status => {
         res.send(status);
     }).catch(err => {
