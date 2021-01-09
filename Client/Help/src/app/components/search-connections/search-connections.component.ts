@@ -41,6 +41,11 @@ export class SearchConnectionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createConnection(id:string){
+    console.log(`${id} connection added to user`);
+    this.connectionService.createConnection(id);
+  }
+
   // Capture user input from input field
   getUser($event:any){
     this.query = $event;
@@ -49,7 +54,7 @@ export class SearchConnectionsComponent implements OnInit {
   // Search database for users
   findUser(){
     this.connectionService.searchConnections(this.query).subscribe(data => {
-      //console.log(data); //Testing
+      console.log(data); //Testing
       this.arrayOfProfiles = data;
     })
   } 

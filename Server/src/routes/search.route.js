@@ -12,13 +12,12 @@ const corsOptions = {
     credentials: true,
 }
 
-
-
 const { search } = searchController;
 const { authenticate } = authentication;
 
 const searchRouter = Router();
 searchRouter.use(cors(corsOptions));
+
 searchRouter.get("/search", authenticate, catchAsync(search));
 
 export default searchRouter;
