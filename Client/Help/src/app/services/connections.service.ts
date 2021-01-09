@@ -14,7 +14,6 @@ export class ConnectionsService {
   addConnectionTopFive(connectionID:string){
     const authToken = this.authenticateUser.getAuthToken();
     this.cookieService.set('jwt',authToken);
-    console.log(authToken);
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     let options = { headers: headers, withCredentials: true };
     var raw = JSON.stringify({"connection_user" : connectionID});
