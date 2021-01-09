@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import {UserAccountService} from '../../services/user-account.service';
+import {ConnectionsService} from '../../services/connections.service';
 
 @Component({
   selector: 'app-content-top-five',
@@ -9,11 +9,23 @@ import {UserAccountService} from '../../services/user-account.service';
 })
 export class ContentTopFiveComponent implements OnInit {
   profilePic = faUserCircle;
-  arrayOfProfiles = this.userAccountService.getTopFive();
+  dummyData = [
+    {firstName:"Jane", lastName:"Doe"},
+    {firstName:"John", lastName:"Smith"},
+    {firstName:"Carl", lastName:"Williams"},
+  ]
+  arrayOfProfiles = this.dummyData;
+  //arrayOfProfiles :any[]= [];
 
-  constructor(private userAccountService: UserAccountService) { }
+  constructor(private connectionsService:ConnectionsService ) { }
 
   ngOnInit(): void {
+/*
+    this.connectionsService.getTopFive().subscribe(data => {
+      this.arrayOfProfiles = data;
+      //console.log(data); //TESTING
+    })
+*/
   }
 
 }
