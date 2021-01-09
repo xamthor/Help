@@ -11,8 +11,8 @@ const connectionSchema = new mongoose.Schema({
   },
   connection_user: { 
     type: mongoose.Schema.Types.ObjectId, 
-    ref:'User', required:true,
-    unique: true
+    ref:'User', 
+    required:true,
   },
   star: {
       type: Boolean,
