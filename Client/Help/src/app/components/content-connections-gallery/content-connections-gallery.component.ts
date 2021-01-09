@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import {ConnectionsService} from '../../services/connections.service';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faPlus, faStar} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,6 +16,7 @@ export class ContentConnectionsGalleryComponent implements OnInit {
     {name: "Pricialla"},
   ]
   faPlus = faPlus;
+  star = faStar;
   profilePic = faUserCircle;
   //arrayOfProfiles = this.dummyData;
   arrayOfProfiles :any[]= [];
