@@ -33,8 +33,8 @@ export class SearchConnectionsComponent implements OnInit {
       __v: 0
     }
   ]; // TESTING
-  arrayOfProfiles = this.profiles; // TESTING
-  //arrayOfProfiles :any[] = []
+  //arrayOfProfiles = this.profiles; // TESTING
+  arrayOfProfiles :any[] = []
 
   constructor( private router:Router, private connectionService: ConnectionsService) { }
 
@@ -49,7 +49,7 @@ export class SearchConnectionsComponent implements OnInit {
   // Search database for users
   findUser(){
     this.connectionService.searchConnections(this.query).subscribe(data => {
-      console.log(data);
+      //console.log(data); //Testing
       this.arrayOfProfiles = data;
     })
   } 

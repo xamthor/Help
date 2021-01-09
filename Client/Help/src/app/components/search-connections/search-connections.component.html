@@ -2,7 +2,7 @@
     <h2 class="text-3xl text-black dark:text-white">Welcome</h2>
     <section>
         <app-login-inputs [title]="titleSearch" (getUserInput)="getUser($event)"></app-login-inputs>
-        <h2 class="text-3xl cursor-pointer text-black dark:text-white mt-2" (click)="findUser()">Search</h2>
+        <button type="button" class="bg-green-600 text-lg text-white rounded-2xl w-40 p-2 cursor-pointer" (click)="findUser()" >Search</button>
     </section>
     <section *ngFor="let profile of arrayOfProfiles; index as i" [ngClass]="{'bg-blue-300': i===0, 'bg-green-300': i%2=== 0, 'bg-yellow-300': i%2 !== 0 }" class="flex justify-around items-center w-11/12 h-16 mt-4 rounded-lg text-center">
         <fa-icon [icon]="profilePic" class="text-4xl"></fa-icon>
