@@ -33,7 +33,7 @@ export class ContentConnectionsGalleryComponent implements OnInit {
   // Method to add or remove a connection on the content-connection screen from the top five list
   addToTopFive(connectionId: string, star: boolean){
     if(star){
-      console.log(`Remove from Top Five ${connectionId} because the star is ${star}`); // TESTING
+      //console.log(`Remove from Top Five ${connectionId} because the star is ${star}`); // TESTING
       this.connectionsService.removeConnectionTopFive(connectionId).subscribe(data => {
         //console.log(data); //Testing
         // TODO: If message is not a success, then inform the user that they all ready have 5 connections starred.
@@ -43,7 +43,7 @@ export class ContentConnectionsGalleryComponent implements OnInit {
         //console.log(data); //Testing
         // TODO: Flash a message that tell user that they have remove someone from top 5
       })
-      console.log(`Add to Top Five ${connectionId} because the star is ${star}`); // TESTING
+      //console.log(`Add to Top Five ${connectionId} because the star is ${star}`); // TESTING
     }
     
   }
