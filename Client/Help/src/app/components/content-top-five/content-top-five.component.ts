@@ -49,30 +49,29 @@ export class ContentTopFiveComponent implements OnInit {
     }
   ];
 
-  arrayOfProfiles = this.dummyData;
-  //arrayOfProfiles :any[]= [];
+  //arrayOfProfiles = this.dummyData;
+  arrayOfProfiles :any[]= [];
 
   constructor(private connectionsService:ConnectionsService ) { }
 
   ngOnInit(): void {
-/*
     this.connectionsService.getTopFive().subscribe(data => {
-      this.arrayOfProfiles = data;
+      this.arrayOfProfiles = data.data;
       //console.log(data); //TESTING
     })
-*/
+
   }
 
   displayConnection(index :number){
     this.showConnection = true;
-    this.fName = this.dummyData[index].firstName;
-    this.lName = this.dummyData[index].lastName;
-    this.phoneNumber= this.dummyData[index].phoneNumber;
+    this.fName = this.arrayOfProfiles[index].connection_user.firstName;
+    this.lName = this.arrayOfProfiles[index].connection_user.lastName;
+    this.phoneNumber= this.arrayOfProfiles[index].connection_user.phoneNumber;
   }
 
   reshowTopFive(){
     this.showConnection = false;
-    console.log("hide connection"); // TESTING
+    //console.log("hide connection"); // TESTING
   }
 
 }
