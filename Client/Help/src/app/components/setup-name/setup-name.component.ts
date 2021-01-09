@@ -47,12 +47,8 @@ export class SetupNameComponent implements OnInit {
 
     if(this.stage === 2){
       this.userCreationService.updatephone(this.newUserPhone);
-    }
-
-    if(this.stage === 3){
-      this.userCreationService.createUser();
-      // Redirect the user to the feed communication's screen 
-      this.router.navigate(['/feed']);
+      this.userCreationService.createUser();      
+      this.router.navigate(['/search-connections']); // Redirect the user to search connections's screen 
     }
 
     this.stage ++; // Move the user through the three user creation screens

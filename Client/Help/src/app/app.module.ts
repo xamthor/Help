@@ -22,6 +22,7 @@ import { ConnectionsContentComponent } from './components/connections-content/co
 import { ContentConnectionsGalleryComponent } from './components/content-connections-gallery/content-connections-gallery.component';
 import { UpdateStatusComponent } from './components/update-status/update-status.component';
 import { MenuScreenComponent } from './components/menu-screen/menu-screen.component';
+import { SearchConnectionsComponent } from './components/search-connections/search-connections.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MenuScreenComponent } from './components/menu-screen/menu-screen.compon
     ConnectionsContentComponent,
     ContentConnectionsGalleryComponent,
     UpdateStatusComponent,
-    MenuScreenComponent
+    MenuScreenComponent,
+    SearchConnectionsComponent
   ],
   imports: [
     BrowserModule,

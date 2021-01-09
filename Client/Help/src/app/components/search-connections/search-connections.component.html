@@ -1,0 +1,11 @@
+<main class="flex flex-col justify-around h-screen text-center  lg:bg-contain lg:bg-no-repeat">
+    <h2 class="text-3xl text-black dark:text-white">Welcome</h2>
+
+    <app-login-inputs [title]="titleSearch" (getUserInput)="findUser($event)"></app-login-inputs>
+    
+    <section class="flex flex-col items-center">
+        
+    </section>
+
+    <h2 class="text-3xl cursor-pointer  text-black dark:text-white" (click)="finish()">Finish</h2>
+</main>
