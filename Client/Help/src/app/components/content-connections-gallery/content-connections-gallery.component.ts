@@ -26,7 +26,7 @@ export class ContentConnectionsGalleryComponent implements OnInit {
   ngOnInit(): void {
     this.connectionsService.getAllConnections().subscribe(data => {
       this.arrayOfProfiles = data;
-      console.log(data);
+      //console.log(data); //TESTING
     })
   }
 
@@ -35,12 +35,12 @@ export class ContentConnectionsGalleryComponent implements OnInit {
     if(star){
       console.log(`Remove from Top Five ${connectionId} because the star is ${star}`); // TESTING
       this.connectionsService.removeConnectionTopFive(connectionId).subscribe(data => {
-        console.log(data); //Testing
+        //console.log(data); //Testing
         // TODO: If message is not a success, then inform the user that they all ready have 5 connections starred.
       })
     }else{
       this.connectionsService.addConnectionTopFive(connectionId).subscribe(data => {
-        console.log(data); //Testing
+        //console.log(data); //Testing
         // TODO: Flash a message that tell user that they have remove someone from top 5
       })
       console.log(`Add to Top Five ${connectionId} because the star is ${star}`); // TESTING
